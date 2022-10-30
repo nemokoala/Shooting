@@ -9,3 +9,14 @@ C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도�
 C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
 C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.exe
 C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.pdb
+C:\CsProject\Shooting\Shooting\bin\Release\Shooting.exe.config
+C:\CsProject\Shooting\Shooting\bin\Release\Shooting.exe
+C:\CsProject\Shooting\Shooting\bin\Release\Shooting.pdb
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.AssemblyReference.cache
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.Form1.resources
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.Properties.Resources.resources
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.GenerateResource.cache
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.exe
+C:\CsProject\Shooting\Shooting\obj\Release\Shooting.pdb

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Shooting
@@ -14,14 +8,17 @@ namespace Shooting
     {
         private int playerMove = 0;
         private int playerHp = 3;
+        private int score = 0;
         private float[] iceSpeed = new float[5];
         private Point point;
         private static int enemy1Amount = 7;
         private PictureBox[] Enemy1Parent = new PictureBox[enemy1Amount];
         private PictureBox[] BulletParent = new PictureBox[7];
+        private Label[] Enemy1HpViewerParent = new Label[enemy1Amount];
         private int[] enemyHp = new int[enemy1Amount];
         private int[] enemyImageCount = new int[enemy1Amount];
-        private int enemyDefaultHp = 4;
+        private int enemyDefaultHp = 30;
+        private int enemyMaxHp = 30;
         private int a = 0;
         Random rnd = new Random();
         private int bulletDelay = 10; //총알 연사 속도 (낮을 수록 빠르게 나감)
@@ -29,6 +26,7 @@ namespace Shooting
         private int bulletCount = 0; //데이터구조로 무한 배열
         private int playerImageCount = 0; //이미지 깜빡임 카운트 20->0
         private int bulletSpeed = 8; //총알 투사체 속도
+        private int bulletDamage = 10;
 
         public Form1()
         {
@@ -58,15 +56,16 @@ namespace Shooting
                 Enemy1Parent[i].Top += 3;
                 //iceSpeed[i] += 0.0001f;
 
-                if (Enemy1Parent[i].Top > ClientSize.Height + 100)
+                if (Enemy1Parent[i].Top > ClientSize.Height + 100) // 적이 맵 밑으로 나갈 경우
                 {
                     Enemy1Parent[i].Top = rnd.Next(-500,-50);
                     Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - 100);
+                    enemyHp[i] = enemyMaxHp;
                     //iceSpeed[i] = rnd.Next(2, 7);
                 }
             }
 
-            //플레이어가 적과 충돌 시
+            //플레이어가 적과 충돌 시, 적 이미지 카운트
             for (int i = 0; i < Enemy1Parent.Length; i++)
             {
                 if (Player.Bounds.IntersectsWith(Enemy1Parent[i].Bounds))
@@ -75,7 +74,9 @@ namespace Shooting
                     Enemy1Parent[i].Top = -5;
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
+                    PlayerHpText.Text = "Hp: " + playerHp;
                 }
+
                 if (enemyImageCount[i] == 16)
                 {
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
@@ -89,6 +90,10 @@ namespace Shooting
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 }
                 enemyImageCount[i]--;
+
+                /*Enemy1HpViewerParent[i].Text = "HP : " + enemyHp[i] +"/"+ enemyMaxHp;
+                Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
+                Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;*/
             }
             //총알이 적과 충돌 시
             for (int i = 0; i < BulletParent.Length; i++)
@@ -97,16 +102,17 @@ namespace Shooting
                 {
                     if (BulletParent[i].Bounds.IntersectsWith(Enemy1Parent[j].Bounds))
                     {
-                        playerHp += 1;
-                        enemyHp[j]--;
+                        enemyHp[j] -= bulletDamage;
                         BulletParent[i].Top = -100;
                         BulletParent[i].Left = -100;
                         Enemy1Parent[j].Image = Properties.Resources.EnemyHit;
                         enemyImageCount[j] = 20;                       
-                        if (enemyHp[j] <= 0)
+                        if (enemyHp[j] <= 0) //적 체력이 0이 됐을 때
                         {
                             Enemy1Parent[j].Top = -100;
-                            enemyHp[j] = enemyDefaultHp;
+                            enemyHp[j] = enemyMaxHp;
+                            enemyImageCount[j] = 0;
+                            score++;
                         }
                     }
                 }
@@ -141,9 +147,12 @@ namespace Shooting
             }
             bulletDelayCount++;
             playerImageCount--;
+            if (playerImageCount == 20) Player.Image = Properties.Resources.PlayerHit;
+            if (playerImageCount == 16) Player.Image = Properties.Resources.Player;
+            if (playerImageCount == 10) Player.Image = Properties.Resources.PlayerHit;
             if (playerImageCount == 0) Player.Image = Properties.Resources.Player;
 
-            ScoreText.Text = "Score : " + playerHp;
+            ScoreText.Text = "Score : " + score;
 
         }
         //------------------------------ 타이머 이벤트 끝 -------------------------------------
@@ -171,7 +180,7 @@ namespace Shooting
                 Enemy1Parent[i] = new PictureBox();
                 Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 Enemy1Parent[i].Location = new Point(rnd.Next(0, 400), rnd.Next(-500, -50));
-                Enemy1Parent[i].Size = new Size(50, 50);
+                Enemy1Parent[i].Size = new Size(40, 40);
                 Enemy1Parent[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 Enemy1Parent[i].Margin = new Padding(0, 0, 0, 0);
                 //Enemy1Parent[i].BackColor = Color.Transparent;
@@ -181,6 +190,18 @@ namespace Shooting
                 Controls.Add(Enemy1Parent[i]);
                 Enemy1Parent[i].BringToFront();
 
+                //적 체력 정보 표시
+                /*Enemy1HpViewerParent[i] = new Label();
+                Enemy1HpViewerParent[i].Text = "HP : " + enemyHp[i] / enemyMaxHp;
+                Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
+                Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;
+                Enemy1HpViewerParent[i].Size = new Size(70, 15);
+                Enemy1HpViewerParent[i].ForeColor = Color.Red;
+                Enemy1HpViewerParent[i].Font = new Font("Verdana", 8, FontStyle.Bold);
+                Enemy1HpViewerParent[i].TextAlign = ContentAlignment.MiddleCenter;
+                Enemy1HpViewerParent[i].AutoSize = true;
+                Controls.Add(Enemy1HpViewerParent[i]);
+                Enemy1HpViewerParent[i].BringToFront();*/
             }
 
             for (int i = 0; i < BulletParent.Length; i++)
@@ -201,6 +222,7 @@ namespace Shooting
             Background1.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Top = 0 - Background2.Height;
+            PlayerHpText.Text = "Hp: " + playerHp;
         } 
     }
 }

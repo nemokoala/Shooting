@@ -36,6 +36,7 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
+            this.PlayerHpText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCollision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
@@ -98,11 +99,23 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
+            // PlayerHpText
+            // 
+            this.PlayerHpText.AutoSize = true;
+            this.PlayerHpText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.PlayerHpText.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.PlayerHpText.Location = new System.Drawing.Point(12, 44);
+            this.PlayerHpText.Name = "PlayerHpText";
+            this.PlayerHpText.Size = new System.Drawing.Size(77, 22);
+            this.PlayerHpText.TabIndex = 1;
+            this.PlayerHpText.Text = "Hp : ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 547);
+            this.Controls.Add(this.PlayerHpText);
             this.Controls.Add(this.ScoreText);
             this.Controls.Add(this.PlayerCollision);
             this.Controls.Add(this.Player);
@@ -131,6 +144,7 @@
         private System.Windows.Forms.Label ScoreText;
         private System.Windows.Forms.PictureBox Background1;
         private System.Windows.Forms.PictureBox Background2;
+        private System.Windows.Forms.Label PlayerHpText;
     }
 }
 
