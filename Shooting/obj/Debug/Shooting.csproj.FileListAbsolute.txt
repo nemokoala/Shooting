@@ -1,0 +1,22 @@
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Debug\Shooting.pdb
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.csproj.AssemblyReference.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.Form1.resources
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.Properties.Resources.resources
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.pdb
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Debug\Shooting.exe.config
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Debug\Shooting.exe
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Debug\Shooting.exe
+C:\CsProject\Shooting\Shooting\bin\Debug\Shooting.exe.config
+C:\CsProject\Shooting\Shooting\bin\Debug\Shooting.exe
+C:\CsProject\Shooting\Shooting\bin\Debug\Shooting.pdb
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.AssemblyReference.cache
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.Form1.resources
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.Properties.Resources.resources
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.exe
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.pdb

@@ -1,0 +1,11 @@
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Release\Shooting.exe.config
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Release\Shooting.exe
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\bin\Release\Shooting.pdb
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.csproj.AssemblyReference.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.Form1.resources
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.Properties.Resources.resources
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.csproj.GenerateResource.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.exe
+C:\Users\playg\OneDrive - Wonkwang University\2022 2학기 강의자료\윈도우프로그래밍실습\프로젝트\Shooting\Shooting\Shooting\obj\Release\Shooting.pdb
