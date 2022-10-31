@@ -20,3 +20,4 @@ C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
 C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
 C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.pdb
+C:\CsProject\Shooting\Shooting\obj\Debug\Shooting.Form2.resources

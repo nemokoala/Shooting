@@ -32,11 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ScoreText = new System.Windows.Forms.Label();
+            this.PlayerHpText = new System.Windows.Forms.Label();
+            this.StageText = new System.Windows.Forms.Label();
+            this.LifeItem = new System.Windows.Forms.PictureBox();
+            this.PowerItem = new System.Windows.Forms.PictureBox();
             this.PlayerCollision = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
-            this.PlayerHpText = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCollision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
@@ -56,24 +61,67 @@
             this.ScoreText.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.ScoreText.Location = new System.Drawing.Point(12, 9);
             this.ScoreText.Name = "ScoreText";
-            this.ScoreText.Size = new System.Drawing.Size(120, 22);
+            this.ScoreText.Size = new System.Drawing.Size(136, 22);
             this.ScoreText.TabIndex = 1;
-            this.ScoreText.Text = "Score : ";
+            this.ScoreText.Text = "Score : 0";
+            // 
+            // PlayerHpText
+            // 
+            this.PlayerHpText.AutoSize = true;
+            this.PlayerHpText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.PlayerHpText.ForeColor = System.Drawing.Color.DarkRed;
+            this.PlayerHpText.Location = new System.Drawing.Point(12, 85);
+            this.PlayerHpText.Name = "PlayerHpText";
+            this.PlayerHpText.Size = new System.Drawing.Size(77, 22);
+            this.PlayerHpText.TabIndex = 1;
+            this.PlayerHpText.Text = "Hp : ";
+            // 
+            // StageText
+            // 
+            this.StageText.AutoSize = true;
+            this.StageText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StageText.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.StageText.Location = new System.Drawing.Point(12, 44);
+            this.StageText.Name = "StageText";
+            this.StageText.Size = new System.Drawing.Size(135, 22);
+            this.StageText.TabIndex = 1;
+            this.StageText.Text = "Stage : 1";
+            // 
+            // LifeItem
+            // 
+            this.LifeItem.Image = ((System.Drawing.Image)(resources.GetObject("LifeItem.Image")));
+            this.LifeItem.Location = new System.Drawing.Point(232, 421);
+            this.LifeItem.Name = "LifeItem";
+            this.LifeItem.Size = new System.Drawing.Size(30, 30);
+            this.LifeItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LifeItem.TabIndex = 3;
+            this.LifeItem.TabStop = false;
+            // 
+            // PowerItem
+            // 
+            this.PowerItem.Image = ((System.Drawing.Image)(resources.GetObject("PowerItem.Image")));
+            this.PowerItem.Location = new System.Drawing.Point(187, 421);
+            this.PowerItem.Name = "PowerItem";
+            this.PowerItem.Size = new System.Drawing.Size(30, 30);
+            this.PowerItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PowerItem.TabIndex = 3;
+            this.PowerItem.TabStop = false;
             // 
             // PlayerCollision
             // 
-            this.PlayerCollision.Image = ((System.Drawing.Image)(resources.GetObject("PlayerCollision.Image")));
-            this.PlayerCollision.Location = new System.Drawing.Point(265, 466);
+            this.PlayerCollision.Image = global::Shooting.Properties.Resources.Enemy2Hit;
+            this.PlayerCollision.Location = new System.Drawing.Point(174, 361);
             this.PlayerCollision.Name = "PlayerCollision";
             this.PlayerCollision.Size = new System.Drawing.Size(25, 25);
+            this.PlayerCollision.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayerCollision.TabIndex = 0;
             this.PlayerCollision.TabStop = false;
             this.PlayerCollision.Visible = false;
             // 
             // Player
             // 
-            this.Player.Image = global::Shooting.Properties.Resources.Player;
-            this.Player.Location = new System.Drawing.Point(180, 466);
+            this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
+            this.Player.Location = new System.Drawing.Point(131, 425);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(50, 50);
             this.Player.TabIndex = 0;
@@ -81,7 +129,7 @@
             // 
             // Background2
             // 
-            this.Background2.Image = global::Shooting.Properties.Resources.Background;
+            this.Background2.Image = ((System.Drawing.Image)(resources.GetObject("Background2.Image")));
             this.Background2.Location = new System.Drawing.Point(0, 281);
             this.Background2.Name = "Background2";
             this.Background2.Size = new System.Drawing.Size(413, 548);
@@ -91,7 +139,7 @@
             // 
             // Background1
             // 
-            this.Background1.Image = global::Shooting.Properties.Resources.Background;
+            this.Background1.Image = ((System.Drawing.Image)(resources.GetObject("Background1.Image")));
             this.Background1.Location = new System.Drawing.Point(0, -1);
             this.Background1.Name = "Background1";
             this.Background1.Size = new System.Drawing.Size(413, 548);
@@ -99,23 +147,15 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
-            // PlayerHpText
-            // 
-            this.PlayerHpText.AutoSize = true;
-            this.PlayerHpText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.PlayerHpText.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.PlayerHpText.Location = new System.Drawing.Point(12, 44);
-            this.PlayerHpText.Name = "PlayerHpText";
-            this.PlayerHpText.Size = new System.Drawing.Size(77, 22);
-            this.PlayerHpText.TabIndex = 1;
-            this.PlayerHpText.Text = "Hp : ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 547);
+            this.ClientSize = new System.Drawing.Size(277, 487);
+            this.Controls.Add(this.LifeItem);
+            this.Controls.Add(this.PowerItem);
             this.Controls.Add(this.PlayerHpText);
+            this.Controls.Add(this.StageText);
             this.Controls.Add(this.ScoreText);
             this.Controls.Add(this.PlayerCollision);
             this.Controls.Add(this.Player);
@@ -127,6 +167,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerCollision)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
@@ -145,6 +187,9 @@
         private System.Windows.Forms.PictureBox Background1;
         private System.Windows.Forms.PictureBox Background2;
         private System.Windows.Forms.Label PlayerHpText;
+        private System.Windows.Forms.PictureBox PowerItem;
+        private System.Windows.Forms.PictureBox LifeItem;
+        private System.Windows.Forms.Label StageText;
     }
 }
 
