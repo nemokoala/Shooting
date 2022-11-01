@@ -32,6 +32,12 @@ namespace Shooting
         private void Form2_Load(object sender, EventArgs e)
         {
             label2.Text = "Score : " + _Form1.score;
+            label3.Text = "Stage : " + _Form1.stage;
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

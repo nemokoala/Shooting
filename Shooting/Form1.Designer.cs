@@ -123,7 +123,8 @@
             this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
             this.Player.Location = new System.Drawing.Point(131, 425);
             this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(50, 50);
+            this.Player.Size = new System.Drawing.Size(40, 40);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player.TabIndex = 0;
             this.Player.TabStop = false;
             // 
@@ -162,7 +163,10 @@
             this.Controls.Add(this.Background2);
             this.Controls.Add(this.Background1);
             this.DoubleBuffered = true;
+            this.MaximumSize = new System.Drawing.Size(293, 526);
+            this.MinimumSize = new System.Drawing.Size(293, 526);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

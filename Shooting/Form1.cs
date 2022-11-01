@@ -9,7 +9,7 @@ namespace Shooting
         private int playerMove = 0;
         private int playerHp = 3;
         public int score = 0;
-        private int stage = 1;
+        public int stage = 1;
         private float[] iceSpeed = new float[5];
         private Point point;
         private static int enemy1Amount = 7;
@@ -32,7 +32,7 @@ namespace Shooting
         private int a = 0;
         Random rnd = new Random();
         private int bulletDelay = 10; //총알 연사 속도 (낮을 수록 빠르게 나감)
-        private int bulletDelayCount = 1; //총알 연사 속도 체크를 위한 카운트
+        public int bulletDelayCount = 1; //총알 연사 속도 체크를 위한 카운트
         private int bulletCount = 0; //데이터구조로 무한 배열
         private int playerImageCount = 0; //이미지 깜빡임 카운트 20->0
         private int bulletSpeed = 8; //총알 투사체 속도
@@ -76,6 +76,8 @@ namespace Shooting
                     Enemy1Parent[i].Top = rnd.Next(-500,-50);
                     Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - 30);
                     enemy1Hp[i] = enemy1DefaultHp;
+                    enemy1ImageCount[i] = 0;
+                    Enemy1Parent[i].Image = Properties.Resources.Enemy;
                     //iceSpeed[i] = rnd.Next(2, 7);
                 }
             }
@@ -92,6 +94,8 @@ namespace Shooting
                         Enemy2Parent[i].Top = rnd.Next(-500, -50);
                         Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - 30);
                         enemy2Hp[i] = enemy2DefaultHp;
+                        enemy2ImageCount[i] = 0;
+                        Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                         //iceSpeed[i] = rnd.Next(2, 7);
                     }
                 }
@@ -216,6 +220,7 @@ namespace Shooting
                             Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
                             enemy1Hp[j] = enemy1DefaultHp;
                             enemy1ImageCount[j] = 0;
+                            Enemy1Parent[j].Image = Properties.Resources.Enemy;
                             score++;
                             ScoreText.Text = "Score : " + score;
                         }
@@ -251,7 +256,8 @@ namespace Shooting
                             Enemy2Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
                             enemy2Hp[j] = enemy2DefaultHp;
                             enemy2ImageCount[j] = 0;
-                            score++;
+                            Enemy2Parent[j].Image = Properties.Resources.Enemy;
+                                score++;
                             ScoreText.Text = "Score : " + score;
                         }
                     }
@@ -303,7 +309,6 @@ namespace Shooting
                 {
                     for(int i=0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Image = null;
                         BulletParent[i].BackColor = Color.Orange;
                     }
                 }
@@ -311,7 +316,6 @@ namespace Shooting
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Image = null;
                         BulletParent[i].BackColor = Color.LightGreen;
                     }
                 }
@@ -319,7 +323,6 @@ namespace Shooting
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Image = null;
                         BulletParent[i].BackColor = Color.LightBlue;
                     }
                 }
@@ -327,8 +330,43 @@ namespace Shooting
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Image = null;
                         BulletParent[i].BackColor = Color.LightCyan;
+                    }
+                }
+                if (bulletDamage == 60) //10
+                {
+                    for (int i = 0; i < BulletParent.Length; i++)
+                    {
+                        BulletParent[i].Size = new Size(12, 25);
+                    }
+                }
+                if (bulletDamage == 70) //10
+                {
+                    for (int i = 0; i < BulletParent.Length; i++)
+                    {
+                        BulletParent[i].Size = new Size(24, 25);
+                    }
+                }
+                if (bulletDamage == 80) //10
+                {
+                    for (int i = 0; i < BulletParent.Length; i++)
+                    {
+                        BulletParent[i].Size = new Size(36, 25);
+                    }
+                }
+                if (bulletDamage == 90) //10
+                {
+                    for (int i = 0; i < BulletParent.Length; i++)
+                    {
+                        BulletParent[i].Size = new Size(38, 25);
+                    }
+                }
+                if (bulletDamage == 120) //10
+                {
+                    for (int i = 0; i < BulletParent.Length; i++)
+                    {
+                        BulletParent[i].BackColor = Color.LightSalmon;
+                        BulletParent[i].Size = new Size(40, 25);
                     }
                 }
             }
