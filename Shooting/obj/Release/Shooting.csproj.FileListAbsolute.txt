@@ -21,3 +21,15 @@ C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cac
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.exe
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.pdb
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.Form2.resources
+C:\CsProject\Shooting\bin\Release\Shooting.exe.config
+C:\CsProject\Shooting\bin\Release\Shooting.exe
+C:\CsProject\Shooting\bin\Release\Shooting.pdb
+C:\CsProject\Shooting\obj\Release\Shooting.csproj.AssemblyReference.cache
+C:\CsProject\Shooting\obj\Release\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\CsProject\Shooting\obj\Release\Shooting.Form1.resources
+C:\CsProject\Shooting\obj\Release\Shooting.Form2.resources
+C:\CsProject\Shooting\obj\Release\Shooting.Properties.Resources.resources
+C:\CsProject\Shooting\obj\Release\Shooting.csproj.GenerateResource.cache
+C:\CsProject\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
+C:\CsProject\Shooting\obj\Release\Shooting.exe
+C:\CsProject\Shooting\obj\Release\Shooting.pdb

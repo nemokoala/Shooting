@@ -17,7 +17,7 @@ namespace Shooting
         private PictureBox[] Enemy1Parent = new PictureBox[enemy1Amount];
         private PictureBox[] Enemy2Parent = new PictureBox[enemy2Amount];
         private PictureBox[] BulletParent = new PictureBox[7];
-        private Label[] Enemy1HpViewerParent = new Label[enemy1Amount];
+        private ProgressBar[] Enemy1HpViewerParent = new ProgressBar[enemy1Amount];
         private int[] enemy1Hp = new int[enemy1Amount];
         private int[] enemy1ImageCount = new int[enemy1Amount];
         private int[] enemy2Hp = new int[enemy2Amount];
@@ -78,6 +78,7 @@ namespace Shooting
                     enemy1Hp[i] = enemy1DefaultHp;
                     enemy1ImageCount[i] = 0;
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    Enemy1HpViewerParent[i].Maximum = enemy1DefaultHp;
                     //iceSpeed[i] = rnd.Next(2, 7);
                 }
             }
@@ -109,6 +110,7 @@ namespace Shooting
                     playerHp -= 1;
                     Enemy1Parent[i].Top = -5;
                     enemy1Hp[i] = enemy1DefaultHp;
+                    Enemy1HpViewerParent[i].Maximum = enemy1DefaultHp;
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
                     PlayerHpText.Text = "Hp: " + playerHp;
@@ -135,11 +137,12 @@ namespace Shooting
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 }
                 enemy1ImageCount[i]--;
-               
 
-                /*Enemy1HpViewerParent[i].Text = "HP : " + enemy1Hp[i] +"/"+ enemy1MaxHp;
-                Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
-                Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;*/
+
+                Enemy1HpViewerParent[i].Value = enemy1Hp[i];
+                Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 20;
+                Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;
+                
             }
 
             //플레이어가 적2과 충돌 시, 적 이미지 카운트
@@ -179,10 +182,10 @@ namespace Shooting
                     }
                     enemy2ImageCount[i]--;
 
-
                     /*Enemy1HpViewerParent[i].Text = "HP : " + enemy1Hp[i] +"/"+ enemy1MaxHp;
                     Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
                     Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;*/
+
                 }
             }
             
@@ -219,6 +222,7 @@ namespace Shooting
                             Enemy1Parent[j].Top = -100;
                             Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
                             enemy1Hp[j] = enemy1DefaultHp;
+                            Enemy1HpViewerParent[j].Maximum = enemy1DefaultHp;
                             enemy1ImageCount[j] = 0;
                             Enemy1Parent[j].Image = Properties.Resources.Enemy;
                             score++;
@@ -458,17 +462,15 @@ namespace Shooting
                 Enemy1Parent[i].BringToFront();
 
                 //적 체력 정보 표시
-                /*Enemy1HpViewerParent[i] = new Label();
-                Enemy1HpViewerParent[i].Text = "HP : " + enemy1Hp[i] / enemy1MaxHp;
+                Enemy1HpViewerParent[i] = new ProgressBar();
+                Enemy1HpViewerParent[i].Maximum = enemy1MaxHp;
+                Enemy1HpViewerParent[i].Minimum = 0;
                 Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
                 Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;
                 Enemy1HpViewerParent[i].Size = new Size(70, 15);
                 Enemy1HpViewerParent[i].ForeColor = Color.Red;
-                Enemy1HpViewerParent[i].Font = new Font("Verdana", 8, FontStyle.Bold);
-                Enemy1HpViewerParent[i].TextAlign = ContentAlignment.MiddleCenter;
-                Enemy1HpViewerParent[i].AutoSize = true;
                 Controls.Add(Enemy1HpViewerParent[i]);
-                Enemy1HpViewerParent[i].BringToFront();*/
+                Enemy1HpViewerParent[i].BringToFront();
             }
 
             //총알 생성
