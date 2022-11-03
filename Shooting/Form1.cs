@@ -17,13 +17,17 @@ namespace Shooting
         private PictureBox[] Enemy1Parent = new PictureBox[enemy1Amount];
         private PictureBox[] Enemy2Parent = new PictureBox[enemy2Amount];
         private PictureBox[] BulletParent = new PictureBox[7];
-        private Label[] Enemy1HpViewerParent = new Label[enemy1Amount];
+        //private Label[] Enemy1HpViewerParent = new Label[enemy1Amount];
+        private ProgressBar EnemyHpBar = new ProgressBar();
+        private int enemyHpTarget = 0;
         private int[] enemy1Hp = new int[enemy1Amount];
         private int[] enemy1ImageCount = new int[enemy1Amount];
         private int[] enemy2Hp = new int[enemy2Amount];
         private int[] enemy2ImageCount = new int[enemy2Amount];
         private int enemy1DefaultHp = 30;
         private int enemy1MaxHp = 30;
+        private int[] enemy1ParentMaxHp = new int[enemy1Amount];
+        private int[] enemy2ParentMaxHp = new int[enemy2Amount];
         private int enemy1Speed = 2;
         private int enemy2DefaultHp = 100;
         private int enemy2MaxHp = 100;
@@ -76,6 +80,7 @@ namespace Shooting
                     Enemy1Parent[i].Top = rnd.Next(-500,-50);
                     Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - 30);
                     enemy1Hp[i] = enemy1DefaultHp;
+                    enemy1ParentMaxHp[i] = enemy1Hp[i];
                     enemy1ImageCount[i] = 0;
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                     //iceSpeed[i] = rnd.Next(2, 7);
@@ -94,6 +99,7 @@ namespace Shooting
                         Enemy2Parent[i].Top = rnd.Next(-500, -50);
                         Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - 30);
                         enemy2Hp[i] = enemy2DefaultHp;
+                        enemy2ParentMaxHp[i] = enemy2Hp[i];
                         enemy2ImageCount[i] = 0;
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                         //iceSpeed[i] = rnd.Next(2, 7);
@@ -109,6 +115,7 @@ namespace Shooting
                     playerHp -= 1;
                     Enemy1Parent[i].Top = -5;
                     enemy1Hp[i] = enemy1DefaultHp;
+                    enemy1ParentMaxHp[i] = enemy1Hp[i];
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
                     PlayerHpText.Text = "Hp: " + playerHp;
@@ -152,6 +159,7 @@ namespace Shooting
                         playerHp -= 1;
                         Enemy2Parent[i].Top = -30;
                         enemy2Hp[i] = enemy2DefaultHp;
+                        enemy2ParentMaxHp[i] = enemy2Hp[i];
                         Player.Image = Properties.Resources.PlayerHit;
                         playerImageCount = 20;
                         PlayerHpText.Text = "Hp: " + playerHp;
@@ -219,11 +227,13 @@ namespace Shooting
                             Enemy1Parent[j].Top = -100;
                             Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
                             enemy1Hp[j] = enemy1DefaultHp;
+                            enemy1ParentMaxHp[j] = enemy1Hp[j];
                             enemy1ImageCount[j] = 0;
                             Enemy1Parent[j].Image = Properties.Resources.Enemy;
                             score++;
                             ScoreText.Text = "Score : " + score;
                         }
+                        enemyHpTarget = j;                         
                     }
                 }
                 
@@ -255,11 +265,13 @@ namespace Shooting
                             Enemy2Parent[j].Top = -100;
                             Enemy2Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
                             enemy2Hp[j] = enemy2DefaultHp;
+                            enemy2ParentMaxHp[j] = enemy2Hp[j];
                             enemy2ImageCount[j] = 0;
                             Enemy2Parent[j].Image = Properties.Resources.Enemy;
                                 score++;
                             ScoreText.Text = "Score : " + score;
                         }
+                        enemyHpTarget = j + 10; 
                     }
                 }
                 if (BulletParent[i].Top < 0)
@@ -267,6 +279,32 @@ namespace Shooting
                     BulletParent[i].Left = -100;
                 } 
             }
+
+            if (enemyHpTarget != -1)
+            {
+                if (enemyHpTarget < 10)
+                {
+                    if (enemy1ParentMaxHp[enemyHpTarget] < 30) enemy1ParentMaxHp[enemyHpTarget] = enemy1MaxHp;
+                    EnemyHpBar.Top = Enemy1Parent[enemyHpTarget].Top - (EnemyHpBar.Height + 10);
+                    EnemyHpBar.Left = Enemy1Parent[enemyHpTarget].Left + Enemy1Parent[enemyHpTarget].Width / 2 - EnemyHpBar.Width / 2;
+                    EnemyHpBar.Maximum = enemy1ParentMaxHp[enemyHpTarget];
+                    EnemyHpBar.Value = enemy1Hp[enemyHpTarget];
+                }
+                if (enemyHpTarget >= 10)
+                {
+                    if (enemy2ParentMaxHp[enemyHpTarget-10] < 30) enemy2ParentMaxHp[enemyHpTarget-10] = enemy2MaxHp;
+                    EnemyHpBar.Top = Enemy2Parent[enemyHpTarget-10].Top - (EnemyHpBar.Height + 10);
+                    EnemyHpBar.Left = Enemy2Parent[enemyHpTarget-10].Left + Enemy2Parent[enemyHpTarget-10].Width / 2 - EnemyHpBar.Width / 2;
+                    EnemyHpBar.Maximum = enemy2ParentMaxHp[enemyHpTarget-10];
+                    EnemyHpBar.Value = enemy2Hp[enemyHpTarget-10];
+                }
+                
+            }
+            if (EnemyHpBar.Top > ClientSize.Height)
+            {
+                enemyHpTarget = -1;
+            }
+            
 
             //총알 발사 : 플레이어 위치로 총알 위치 이동
             if (bulletDelayCount % bulletDelay == 0)
@@ -396,14 +434,16 @@ namespace Shooting
                 lifeItemActive = false;
                 LifeItem.Left = -100;
             }
+
+            //스테이지 설정
             if (bulletDelayCount % 1000 == 0)
             {
                 stage = (bulletDelayCount / 1000)+1;         
                 StageText.Text = "Stage : " + stage;
-                enemy1DefaultHp = enemy1MaxHp + stage * 10;
-                enemy2DefaultHp = enemy2MaxHp + stage * 20;
-                if (stage % 3 == 0) enemy1Speed++;
-                if (stage > 5 && stage % 3 == 0) enemy2Speed++;
+                enemy1DefaultHp = enemy1MaxHp + stage * 20;
+                enemy2DefaultHp = enemy2MaxHp + stage * 50;
+                if (stage % 4 == 0) enemy1Speed++;
+                if (stage > 5 && stage % 10 == 0) enemy2Speed++;
                 if (stage == 5)
                 {
                     for (int i=0; i < Enemy2Parent.Length; i++)
@@ -457,6 +497,7 @@ namespace Shooting
                 Controls.Add(Enemy1Parent[i]);
                 Enemy1Parent[i].BringToFront();
 
+                enemy1ParentMaxHp[i] = enemy1MaxHp;
                 //적 체력 정보 표시
                 /*Enemy1HpViewerParent[i] = new Label();
                 Enemy1HpViewerParent[i].Text = "HP : " + enemy1Hp[i] / enemy1MaxHp;
@@ -494,6 +535,16 @@ namespace Shooting
             PlayerHpText.Text = "Hp: " + playerHp;
             PowerItem.Left = -100;
             LifeItem.Left = -100;
+
+            EnemyHpBar = new ProgressBar();
+            EnemyHpBar.Maximum = enemy1MaxHp;
+            EnemyHpBar.Minimum = 0;
+            EnemyHpBar.Top = EnemyHpBar.Top - 15;
+            EnemyHpBar.Left = EnemyHpBar.Left - 15;
+            EnemyHpBar.Size = new Size(70, 15);
+            EnemyHpBar.ForeColor = Color.Red;
+            Controls.Add(EnemyHpBar);
+            EnemyHpBar.BringToFront();
         } 
     }
 }
