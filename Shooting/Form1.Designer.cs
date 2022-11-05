@@ -59,10 +59,9 @@
             this.ScoreText.AutoSize = true;
             this.ScoreText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ScoreText.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.ScoreText.Location = new System.Drawing.Point(19, 16);
-            this.ScoreText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.ScoreText.Location = new System.Drawing.Point(12, 9);
             this.ScoreText.Name = "ScoreText";
-            this.ScoreText.Size = new System.Drawing.Size(231, 39);
+            this.ScoreText.Size = new System.Drawing.Size(136, 22);
             this.ScoreText.TabIndex = 1;
             this.ScoreText.Text = "Score : 0";
             // 
@@ -71,10 +70,9 @@
             this.PlayerHpText.AutoSize = true;
             this.PlayerHpText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.PlayerHpText.ForeColor = System.Drawing.Color.DarkRed;
-            this.PlayerHpText.Location = new System.Drawing.Point(19, 149);
-            this.PlayerHpText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.PlayerHpText.Location = new System.Drawing.Point(12, 85);
             this.PlayerHpText.Name = "PlayerHpText";
-            this.PlayerHpText.Size = new System.Drawing.Size(129, 39);
+            this.PlayerHpText.Size = new System.Drawing.Size(77, 22);
             this.PlayerHpText.TabIndex = 1;
             this.PlayerHpText.Text = "Hp : ";
             // 
@@ -83,20 +81,18 @@
             this.StageText.AutoSize = true;
             this.StageText.Font = new System.Drawing.Font("휴먼둥근헤드라인", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.StageText.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.StageText.Location = new System.Drawing.Point(19, 77);
-            this.StageText.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.StageText.Location = new System.Drawing.Point(12, 44);
             this.StageText.Name = "StageText";
-            this.StageText.Size = new System.Drawing.Size(230, 39);
+            this.StageText.Size = new System.Drawing.Size(135, 22);
             this.StageText.TabIndex = 1;
             this.StageText.Text = "Stage : 1";
             // 
             // LifeItem
             // 
             this.LifeItem.Image = ((System.Drawing.Image)(resources.GetObject("LifeItem.Image")));
-            this.LifeItem.Location = new System.Drawing.Point(365, 737);
-            this.LifeItem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.LifeItem.Location = new System.Drawing.Point(232, 421);
             this.LifeItem.Name = "LifeItem";
-            this.LifeItem.Size = new System.Drawing.Size(47, 52);
+            this.LifeItem.Size = new System.Drawing.Size(30, 30);
             this.LifeItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LifeItem.TabIndex = 3;
             this.LifeItem.TabStop = false;
@@ -104,10 +100,9 @@
             // PowerItem
             // 
             this.PowerItem.Image = ((System.Drawing.Image)(resources.GetObject("PowerItem.Image")));
-            this.PowerItem.Location = new System.Drawing.Point(294, 737);
-            this.PowerItem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PowerItem.Location = new System.Drawing.Point(187, 421);
             this.PowerItem.Name = "PowerItem";
-            this.PowerItem.Size = new System.Drawing.Size(47, 52);
+            this.PowerItem.Size = new System.Drawing.Size(30, 30);
             this.PowerItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PowerItem.TabIndex = 3;
             this.PowerItem.TabStop = false;
@@ -115,10 +110,9 @@
             // PlayerCollision
             // 
             this.PlayerCollision.Image = global::Shooting.Properties.Resources.Enemy2Hit;
-            this.PlayerCollision.Location = new System.Drawing.Point(273, 632);
-            this.PlayerCollision.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PlayerCollision.Location = new System.Drawing.Point(174, 361);
             this.PlayerCollision.Name = "PlayerCollision";
-            this.PlayerCollision.Size = new System.Drawing.Size(39, 44);
+            this.PlayerCollision.Size = new System.Drawing.Size(25, 25);
             this.PlayerCollision.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayerCollision.TabIndex = 0;
             this.PlayerCollision.TabStop = false;
@@ -127,10 +121,9 @@
             // Player
             // 
             this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
-            this.Player.Location = new System.Drawing.Point(206, 724);
-            this.Player.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Player.Location = new System.Drawing.Point(131, 414);
             this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(63, 70);
+            this.Player.Size = new System.Drawing.Size(40, 40);
             this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player.TabIndex = 0;
             this.Player.TabStop = false;
@@ -138,10 +131,9 @@
             // Background2
             // 
             this.Background2.Image = ((System.Drawing.Image)(resources.GetObject("Background2.Image")));
-            this.Background2.Location = new System.Drawing.Point(0, 492);
-            this.Background2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Background2.Location = new System.Drawing.Point(0, 281);
             this.Background2.Name = "Background2";
-            this.Background2.Size = new System.Drawing.Size(649, 959);
+            this.Background2.Size = new System.Drawing.Size(413, 548);
             this.Background2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Background2.TabIndex = 2;
             this.Background2.TabStop = false;
@@ -149,19 +141,18 @@
             // Background1
             // 
             this.Background1.Image = ((System.Drawing.Image)(resources.GetObject("Background1.Image")));
-            this.Background1.Location = new System.Drawing.Point(0, -2);
-            this.Background1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Background1.Location = new System.Drawing.Point(0, -1);
             this.Background1.Name = "Background1";
-            this.Background1.Size = new System.Drawing.Size(649, 959);
+            this.Background1.Size = new System.Drawing.Size(413, 548);
             this.Background1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 808);
+            this.ClientSize = new System.Drawing.Size(274, 476);
             this.Controls.Add(this.LifeItem);
             this.Controls.Add(this.PowerItem);
             this.Controls.Add(this.PlayerHpText);
@@ -172,9 +163,8 @@
             this.Controls.Add(this.Background2);
             this.Controls.Add(this.Background1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.MaximumSize = new System.Drawing.Size(447, 872);
-            this.MinimumSize = new System.Drawing.Size(447, 872);
+            this.MaximumSize = new System.Drawing.Size(290, 515);
+            this.MinimumSize = new System.Drawing.Size(290, 515);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
