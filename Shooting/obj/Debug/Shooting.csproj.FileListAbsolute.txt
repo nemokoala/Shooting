@@ -33,15 +33,5 @@ C:\CsProject\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
 C:\CsProject\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
 C:\CsProject\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\Shooting\obj\Debug\Shooting.pdb
-C:\CsProject\hpbar\Shooting\Shooting\bin\Debug\Shooting.exe.config
-C:\CsProject\hpbar\Shooting\Shooting\bin\Debug\Shooting.exe
-C:\CsProject\hpbar\Shooting\Shooting\bin\Debug\Shooting.pdb
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.csproj.AssemblyReference.cache
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.csproj.SuggestedBindingRedirects.cache
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.Form1.resources
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.Form2.resources
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.Properties.Resources.resources
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.exe
-C:\CsProject\hpbar\Shooting\Shooting\obj\Debug\Shooting.pdb
+C:\CsProject\Shooting\obj\Debug\Shooting.MainForm.resources
+C:\CsProject\Shooting\obj\Debug\Shooting.ReactionForm.resources
