@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Shooting
-{
+{ 
     public partial class MainForm : Form
     {
+        public static Boolean ShowMainForm = true;
         public MainForm()
         {
             InitializeComponent();
@@ -20,13 +21,15 @@ namespace Shooting
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            form1.ShowDialog();
+            form1.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ReactionForm reactionForm = new ReactionForm();
-            reactionForm.ShowDialog();
+            reactionForm.Show();
+            this.Hide();
         }
     }
 }
