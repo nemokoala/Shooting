@@ -22,7 +22,7 @@ namespace Shooting
         {
             Form1 form1 = new Form1();
             form1.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)

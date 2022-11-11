@@ -30,7 +30,7 @@ namespace Shooting
         private int enemy1Speed = 2;
         private int enemy2DefaultHp = 100;
         private int enemy2MaxHp = 100;
-        private int enemy2Speed = 1;
+        private int enemy2Speed = 2;
         private int enemy2InsStage = 5;
         private int a = 0;
         Random rnd = new Random();
@@ -56,15 +56,7 @@ namespace Shooting
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TimerAction();
-            ScoreText.BringToFront();
-            StageText.BringToFront();
-            PlayerHpText.BringToFront();
-            WeaponLevelText.BringToFront();
-        }
-
-        private void TimerAction()
-        {
+            UIText.BringToFront();
             { //플레이어 이동
                 if (playerMove == -1) Player.Left -= 4;
                 if (playerMove == 1) Player.Left += 4;
@@ -95,9 +87,9 @@ namespace Shooting
                 else Enemy1Parent[i].Visible = false;
 
                 //if (ScoreText.Bounds.IntersectsWith(Enemy1Parent[i].Bounds))
-                
-                    
-                
+
+
+
             }
             //적 2 낙하
             if (stage >= enemy2InsStage)
@@ -135,7 +127,7 @@ namespace Shooting
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
-                    PlayerHpText.Text = "Hp: " + playerHp;
+                    UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
 
                     if (playerHp <= 0 && gameover == false)
                     {
@@ -192,7 +184,7 @@ namespace Shooting
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
                         Player.Image = Properties.Resources.PlayerHit;
                         playerImageCount = 20;
-                        PlayerHpText.Text = "Hp: " + playerHp;
+                        UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
 
                         if (playerHp <= 0 && gameover == false)
                         {
@@ -331,7 +323,7 @@ namespace Shooting
                 weaponLevel++;
                 powerItemActive = false;
                 PowerItem.Left = -100;
-                WeaponLevelText.Text = "무기레벨 : " + (weaponLevel);
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
                 if (bulletDamage == 20) //5
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
@@ -410,7 +402,7 @@ namespace Shooting
             if (Player.Bounds.IntersectsWith(LifeItem.Bounds))
             {
                 playerHp += 1;
-                PlayerHpText.Text = "Hp: " + playerHp;
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
                 lifeItemActive = false;
                 LifeItem.Left = -100;
             }
@@ -426,7 +418,7 @@ namespace Shooting
 
             if (Player.Bounds.IntersectsWith(BombItem.Bounds)) //폭탄 아이템
             {
-                for (int i=0; i < Enemy1Parent.Length; i++)
+                for (int i = 0; i < Enemy1Parent.Length; i++)
                 {
                     Enemy1Die(i);
                 }
@@ -455,7 +447,7 @@ namespace Shooting
             if (bulletDelayCount % 1000 == 0) //스테이지 설정
             {
                 stage = (bulletDelayCount / 1000) + 1;
-                StageText.Text = "Stage : " + stage;
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
                 enemy1DefaultHp = enemy1MaxHp + stage * 15;
                 enemy2DefaultHp = enemy2MaxHp + stage * 40;
                 if (stage % 6 == 0) enemy1Speed++;
@@ -489,7 +481,9 @@ namespace Shooting
                     }
                 }
             }
+            
         }
+
         //------------------------------ 타이머 이벤트 끝 -------------------------------------
 
         private void Enemy1Die(int j)
@@ -523,7 +517,7 @@ namespace Shooting
             enemy1ImageCount[j] = 0;
             Enemy1Parent[j].Image = Properties.Resources.Enemy;
             score += 10;
-            ScoreText.Text = "Score : " + score;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
 
         }
 
@@ -558,7 +552,7 @@ namespace Shooting
             enemy2ImageCount[j] = 0;
             Enemy2Parent[j].Image = Properties.Resources.Enemy;
             score += 20;
-            ScoreText.Text = "Score : " + score;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -630,7 +624,7 @@ namespace Shooting
             Background1.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Top = 0 - Background2.Height;
-            PlayerHpText.Text = "Hp: " + playerHp;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
             PowerItem.Left = -100; //아이템들 위치 초기설정
             LifeItem.Left = -100;
             BombItem.Left = -100;

@@ -21,3 +21,17 @@ C:\CsProject\Shooting\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cac
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.exe
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.pdb
 C:\CsProject\Shooting\Shooting\obj\Release\Shooting.Form2.resources
+C:\CsProject\RecentGit\Shooting\bin\Release\Shooting.exe.config
+C:\CsProject\RecentGit\Shooting\bin\Release\Shooting.exe
+C:\CsProject\RecentGit\Shooting\bin\Release\Shooting.pdb
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.AssemblyReference.cache
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.SuggestedBindingRedirects.cache
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Form1.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Form2.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.MainForm.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Properties.Resources.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.ReactionForm.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.GenerateResource.cache
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.exe
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.pdb
