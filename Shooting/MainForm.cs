@@ -29,7 +29,14 @@ namespace Shooting
         {
             ReactionForm reactionForm = new ReactionForm();
             reactionForm.Show();
-            this.Hide();
+            //this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            JellyForm jellyForm = new JellyForm();
+            jellyForm.Show();
+            //this.Hide();
         }
     }
 }

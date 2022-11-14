@@ -73,29 +73,9 @@ namespace Shooting.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Bullet {
+        internal static System.Drawing.Bitmap BombItem {
             get {
-                object obj = ResourceManager.GetObject("Bullet", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Bullet2 {
-            get {
-                object obj = ResourceManager.GetObject("Bullet2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Bullet3 {
-            get {
-                object obj = ResourceManager.GetObject("Bullet3", resourceCulture);
+                object obj = ResourceManager.GetObject("BombItem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +123,36 @@ namespace Shooting.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Explosion {
+            get {
+                object obj = ResourceManager.GetObject("Explosion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap JellyEnemy1 {
+            get {
+                object obj = ResourceManager.GetObject("JellyEnemy1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap JellyEnemy2 {
+            get {
+                object obj = ResourceManager.GetObject("JellyEnemy2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap LifeItem {
             get {
                 object obj = ResourceManager.GetObject("LifeItem", resourceCulture);
@@ -156,6 +166,16 @@ namespace Shooting.Properties {
         internal static System.Drawing.Bitmap Player {
             get {
                 object obj = ResourceManager.GetObject("Player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player1 {
+            get {
+                object obj = ResourceManager.GetObject("Player1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

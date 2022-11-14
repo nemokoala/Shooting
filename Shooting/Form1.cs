@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Media;
 using System.Windows.Forms;
 
@@ -27,26 +28,29 @@ namespace Shooting
         private int[] enemy2ImageCount = new int[enemy2Amount];
         private int enemy1DefaultHp = 30;
         private int enemy1MaxHp = 30;
-        private int enemy1Speed = 2;
+        private int enemy1Speed = 3;
         private int enemy2DefaultHp = 100;
         private int enemy2MaxHp = 100;
-        private int enemy2Speed = 2;
+        private int enemy2Speed = 3;
         private int enemy2InsStage = 5;
         private int a = 0;
+        private int explosionCount = 0;
         Random rnd = new Random();
-        private int bulletDelay = 10; //총알 연사 속도 (낮을 수록 빠르게 나감)
+        private int bulletDelay = 7; //총알 연사 속도 (낮을 수록 빠르게 나감)
         public int bulletDelayCount = 1; //총알 연사 속도 체크를 위한 카운트
         private int bulletCount = 0; //데이터구조로 무한 배열
         private int playerImageCount = 0; //이미지 깜빡임 카운트 20->0
-        private int bulletSpeed = 10; //총알 투사체 속도
+        private int bulletSpeed = 16; //총알 투사체 속도
         private int bulletDamage = 10;
         private int weaponLevel = 1;
+        private int itemMoveSpeed = 3;
         private Boolean powerItemActive = false;
         private Boolean lifeItemActive = false;
         private Boolean bombItemActive = false;
         private Boolean gameover = false;
         private SoundPlayer GunSound = new SoundPlayer("gun.wav");
         private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
+        private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
 
         public Form1()
         {
@@ -58,8 +62,8 @@ namespace Shooting
         {
             UIText.BringToFront();
             { //플레이어 이동
-                if (playerMove == -1) Player.Left -= 4;
-                if (playerMove == 1) Player.Left += 4;
+                if (playerMove == -1) Player.Left -= 6;
+                if (playerMove == 1) Player.Left += 6;
                 if (Player.Left < 0) Player.Left = 0;
                 if (Player.Left > ClientSize.Width - Player.Width) Player.Left = ClientSize.Width - Player.Width;
                 /*int x = Player.Location.X + Player.Width / 2;
@@ -75,19 +79,16 @@ namespace Shooting
                 if (Enemy1Parent[i].Top > ClientSize.Height + 100) // 적이 맵 밑으로 나갈 경우
                 {
                     Enemy1Parent[i].Visible = false;
-                    Enemy1Parent[i].Top = rnd.Next(-500, -50);
-                    Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - 40);
+                    Enemy1Parent[i].Top = rnd.Next(-500, -Enemy1Parent[0].Height);
+                    Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - Enemy1Parent[0].Width);
                     enemy1Hp[i] = enemy1DefaultHp;
                     enemy1ImageCount[i] = 0;
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                     Enemy1HpViewerParent[i].Maximum = enemy1DefaultHp;
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
                 }
-                if (Enemy1Parent[i].Top > -40) Enemy1Parent[i].Visible = true;
+                if (Enemy1Parent[i].Top > 0 - Enemy1Parent[0].Height) Enemy1Parent[i].Visible = true;
                 else Enemy1Parent[i].Visible = false;
-
-                //if (ScoreText.Bounds.IntersectsWith(Enemy1Parent[i].Bounds))
-
 
 
             }
@@ -101,15 +102,15 @@ namespace Shooting
                     if (Enemy2Parent[i].Top > ClientSize.Height + 100) // 적이 맵 밑으로 나갈 경우
                     {
                         Enemy2Parent[i].Visible = true;
-                        Enemy2Parent[i].Top = rnd.Next(-500, -50);
-                        Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - 60);
+                        Enemy2Parent[i].Top = rnd.Next(-500, -Enemy2Parent[0].Height);
+                        Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - Enemy2Parent[0].Width);
                         enemy2Hp[i] = enemy2DefaultHp;
                         enemy2ImageCount[i] = 0;
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                         Enemy2HpViewerParent[i].Maximum = enemy2DefaultHp;
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
                     }
-                    if (Enemy2Parent[i].Top > -40) Enemy2Parent[i].Visible = true;
+                    if (Enemy2Parent[i].Top > 0 - Enemy2Parent[0].Height) Enemy2Parent[i].Visible = true;
                     else Enemy2Parent[i].Visible = false;
                 }
             }
@@ -120,8 +121,8 @@ namespace Shooting
                 if (Player.Bounds.IntersectsWith(Enemy1Parent[i].Bounds))
                 {
                     playerHp -= 1;
-                    Enemy1Parent[i].Top = rnd.Next(-500, -50);
-                    Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - 40);
+                    Enemy1Parent[i].Top = rnd.Next(-500, -Enemy1Parent[0].Height);
+                    Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - Enemy1Parent[0].Width);
                     enemy1Hp[i] = enemy1DefaultHp;
                     Enemy1HpViewerParent[i].Maximum = enemy1DefaultHp;
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
@@ -177,8 +178,8 @@ namespace Shooting
                     if (Player.Bounds.IntersectsWith(Enemy2Parent[i].Bounds))
                     {
                         playerHp -= 1;
-                        Enemy2Parent[i].Top = rnd.Next(-500, -50);
-                        Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - 60);
+                        Enemy2Parent[i].Top = rnd.Next(-500, -Enemy2Parent[0].Height);
+                        Enemy2Parent[i].Left = rnd.Next(0, ClientSize.Width - Enemy2Parent[0].Width);
                         enemy2Hp[i] = enemy2DefaultHp;
                         Enemy2HpViewerParent[i].Maximum = enemy2DefaultHp;
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
@@ -342,56 +343,60 @@ namespace Shooting
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].BackColor = Color.LightBlue;
+                        BulletParent[i].BackColor = Color.LawnGreen;
                     }
                 }
                 if (bulletDamage == 50) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].BackColor = Color.LightCyan;
+                        BulletParent[i].BackColor = Color.Lime;
                     }
                 }
                 if (bulletDamage == 60) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Size = new Size(12, 25);
+                        BulletParent[i].BackColor = Color.GreenYellow;
+                        BulletParent[i].Size = new Size(12, 35);
                     }
                 }
                 if (bulletDamage == 70) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Size = new Size(24, 25);
+                        BulletParent[i].BackColor = Color.PaleGreen;
+                        BulletParent[i].Size = new Size(24, 35);
                     }
                 }
                 if (bulletDamage == 80) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Size = new Size(36, 25);
+                        BulletParent[i].BackColor = Color.MediumSpringGreen;
+                        BulletParent[i].Size = new Size(36, 35);
                     }
                 }
                 if (bulletDamage == 90) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].Size = new Size(38, 25);
+                        BulletParent[i].BackColor = Color.Aquamarine;
+                        BulletParent[i].Size = new Size(38, 35);
                     }
                 }
                 if (bulletDamage == 120) //10
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
-                        BulletParent[i].BackColor = Color.LightSalmon;
-                        BulletParent[i].Size = new Size(40, 25);
+                        BulletParent[i].BackColor = Color.SkyBlue;
+                        BulletParent[i].Size = new Size(40, 35);
                     }
                 }
             }
             if (powerItemActive == true)
             {
-                PowerItem.Top += 2;
+                PowerItem.Top += itemMoveSpeed;
             }
             if (PowerItem.Top > ClientSize.Height)
             {
@@ -408,7 +413,7 @@ namespace Shooting
             }
             if (lifeItemActive == true)
             {
-                LifeItem.Top += 2;
+                LifeItem.Top += itemMoveSpeed;
             }
             if (LifeItem.Top > ClientSize.Height)
             {
@@ -416,8 +421,15 @@ namespace Shooting
                 LifeItem.Left = -100;
             }
 
-            if (Player.Bounds.IntersectsWith(BombItem.Bounds)) //폭탄 아이템
+            
+            explosionCount--;
+            if (explosionCount < 0) Explosion.SendToBack();
+            //폭탄 아이템
+            if (Player.Bounds.IntersectsWith(BombItem.Bounds)) 
             {
+                ExplosionSound.Play();
+                Explosion.BringToFront();
+                explosionCount = 15;
                 for (int i = 0; i < Enemy1Parent.Length; i++)
                 {
                     Enemy1Die(i);
@@ -435,7 +447,7 @@ namespace Shooting
             }
             if (bombItemActive == true)
             {
-                BombItem.Top += 2;
+                BombItem.Top += itemMoveSpeed;
             }
             if (BombItem.Top > ClientSize.Height)
             {
@@ -443,15 +455,15 @@ namespace Shooting
                 BombItem.Left = -100;
             }
 
-
-            if (bulletDelayCount % 1000 == 0) //스테이지 설정
+            //스테이지 설정
+            if (bulletDelayCount % 700 == 0) 
             {
-                stage = (bulletDelayCount / 1000) + 1;
+                stage = (bulletDelayCount / 700) + 1;
                 UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
                 enemy1DefaultHp = enemy1MaxHp + stage * 15;
                 enemy2DefaultHp = enemy2MaxHp + stage * 40;
-                if (stage % 6 == 0) enemy1Speed++;
-                if (stage > 5 && stage % 10 == 0) enemy2Speed++;
+                if (stage % 3 == 0) enemy1Speed++;
+                if (stage > 5 && stage % 6 == 0) enemy2Speed++;
                 if (stage == 5)
                 {
                     for (int i = 0; i < Enemy2Parent.Length; i++)
@@ -459,7 +471,7 @@ namespace Shooting
                         Enemy2Parent[i] = new PictureBox();
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                         Enemy2Parent[i].Location = new Point(rnd.Next(0, ClientSize.Width - 30), rnd.Next(-500, -50));
-                        Enemy2Parent[i].Size = new Size(60, 60);
+                        Enemy2Parent[i].Size = new Size(70, 90);
                         Enemy2Parent[i].SizeMode = PictureBoxSizeMode.StretchImage;
                         Enemy2Parent[i].Margin = new Padding(0, 0, 0, 0);
                         enemy2Hp[i] = enemy2DefaultHp;  //적2 체력 세팅
@@ -512,7 +524,7 @@ namespace Shooting
                 BombItem.Top = Enemy1Parent[j].Top;
             }
             Enemy1Parent[j].Top = rnd.Next(-500, -50); 
-            Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
+            Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - Enemy1Parent[0].Width);
             enemy1Hp[j] = enemy1DefaultHp;
             enemy1ImageCount[j] = 0;
             Enemy1Parent[j].Image = Properties.Resources.Enemy;
@@ -547,7 +559,7 @@ namespace Shooting
                 BombItem.Top = Enemy2Parent[j].Top;
             }
             Enemy2Parent[j].Top = rnd.Next(-500, -50);
-            Enemy2Parent[j].Left = rnd.Next(0, ClientSize.Width - 30);
+            Enemy2Parent[j].Left = rnd.Next(0, ClientSize.Width - Enemy2Parent[0].Width);
             enemy2Hp[j] = enemy2DefaultHp;
             enemy2ImageCount[j] = 0;
             Enemy2Parent[j].Image = Properties.Resources.Enemy;
@@ -559,7 +571,7 @@ namespace Shooting
         {
             if (e.KeyCode == Keys.Left) playerMove = -1;
             if (e.KeyCode == Keys.Right) playerMove = 1;
-            if (e.KeyCode == Keys.Z) stage = 5;
+            if (e.KeyCode == Keys.Z) Player.Controls.Clear();
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -579,7 +591,7 @@ namespace Shooting
                 Enemy1Parent[i] = new PictureBox();
                 Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 Enemy1Parent[i].Location = new Point(rnd.Next(0, ClientSize.Width - 50), rnd.Next(-500, -50));
-                Enemy1Parent[i].Size = new Size(40, 40);
+                Enemy1Parent[i].Size = new Size(50, 75);
                 Enemy1Parent[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 Enemy1Parent[i].Margin = new Padding(0, 0, 0, 0);
                 //Enemy1Parent[i].BackColor = Color.Transparent;
@@ -614,7 +626,7 @@ namespace Shooting
                 //int y = Player.Location.Y + Player.Height / 2;
                 //Point p = new Point(x, y);
                 BulletParent[i].Location = new Point(-30, 0);
-                BulletParent[i].Size = new Size(6, 25);
+                BulletParent[i].Size = new Size(6, 35);
                 BulletParent[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 BulletParent[i].Margin = new Padding(0, 0, 0, 0);
                 //Enemy1Parent[i].BackColor = Color.Transparent;
@@ -628,7 +640,7 @@ namespace Shooting
             PowerItem.Left = -100; //아이템들 위치 초기설정
             LifeItem.Left = -100;
             BombItem.Left = -100;
-
+            Explosion.SendToBack();
             BgmSound.PlayLooping();
         }
 
@@ -636,5 +648,7 @@ namespace Shooting
         {
             Application.Exit();
         }
+
+        
     }
 }

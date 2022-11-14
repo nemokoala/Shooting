@@ -49,3 +49,4 @@ C:\CsProject\RecentGit\Shooting\obj\Debug\Shooting.csproj.GenerateResource.cache
 C:\CsProject\RecentGit\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
 C:\CsProject\RecentGit\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\RecentGit\Shooting\obj\Debug\Shooting.pdb
+C:\CsProject\RecentGit\Shooting\obj\Debug\Shooting.JellyForm.resources

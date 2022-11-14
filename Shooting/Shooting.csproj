@@ -76,6 +76,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="JellyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JellyForm.Designer.cs">
+      <DependentUpon>JellyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JellyForm.resx">
+      <DependentUpon>JellyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -150,9 +159,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlayerHit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\EnemyHit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -168,10 +174,40 @@
     <None Include="Resources\Bullet3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Enemy.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnemyHit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayerHit.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Enemy2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Enemy2Hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BombItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Explosion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Player2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JellyEnemy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JellyEnemy2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,24 +32,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.UIText = new System.Windows.Forms.Label();
+            this.Explosion = new System.Windows.Forms.PictureBox();
+            this.BombItem = new System.Windows.Forms.PictureBox();
             this.LifeItem = new System.Windows.Forms.PictureBox();
             this.PowerItem = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
-            this.BombItem = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 15;
+            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UIText
@@ -63,6 +65,27 @@
             this.UIText.Size = new System.Drawing.Size(99, 30);
             this.UIText.TabIndex = 1;
             this.UIText.Text = "Score : 0\r\n";
+            // 
+            // Explosion
+            // 
+            this.Explosion.Image = global::Shooting.Properties.Resources.Explosion;
+            this.Explosion.Location = new System.Drawing.Point(0, -1);
+            this.Explosion.Name = "Explosion";
+            this.Explosion.Size = new System.Drawing.Size(319, 569);
+            this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Explosion.TabIndex = 4;
+            this.Explosion.TabStop = false;
+            // 
+            // BombItem
+            // 
+            this.BombItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BombItem.Image = global::Shooting.Properties.Resources.BombItem;
+            this.BombItem.Location = new System.Drawing.Point(232, 385);
+            this.BombItem.Name = "BombItem";
+            this.BombItem.Size = new System.Drawing.Size(30, 30);
+            this.BombItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BombItem.TabIndex = 3;
+            this.BombItem.TabStop = false;
             // 
             // LifeItem
             // 
@@ -87,9 +110,9 @@
             // Player
             // 
             this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
-            this.Player.Location = new System.Drawing.Point(131, 425);
+            this.Player.Location = new System.Drawing.Point(140, 480);
             this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(40, 40);
+            this.Player.Size = new System.Drawing.Size(50, 75);
             this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player.TabIndex = 0;
             this.Player.TabStop = false;
@@ -114,21 +137,12 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
-            // BombItem
-            // 
-            this.BombItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BombItem.Location = new System.Drawing.Point(232, 385);
-            this.BombItem.Name = "BombItem";
-            this.BombItem.Size = new System.Drawing.Size(30, 30);
-            this.BombItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BombItem.TabIndex = 3;
-            this.BombItem.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 465);
+            this.ClientSize = new System.Drawing.Size(317, 567);
+            this.Controls.Add(this.Explosion);
             this.Controls.Add(this.BombItem);
             this.Controls.Add(this.LifeItem);
             this.Controls.Add(this.PowerItem);
@@ -137,8 +151,6 @@
             this.Controls.Add(this.Background2);
             this.Controls.Add(this.Background1);
             this.DoubleBuffered = true;
-            this.MaximumSize = new System.Drawing.Size(287, 504);
-            this.MinimumSize = new System.Drawing.Size(287, 504);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -146,12 +158,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BombItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BombItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +180,7 @@
         private System.Windows.Forms.PictureBox PowerItem;
         private System.Windows.Forms.PictureBox LifeItem;
         private System.Windows.Forms.PictureBox BombItem;
+        private System.Windows.Forms.PictureBox Explosion;
     }
 }
 
