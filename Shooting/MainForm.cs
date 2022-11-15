@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Shooting
 { 
     public partial class MainForm : Form
     {
+        private int shootingStage = 0;
+        private int shootingScore = 0;
         public static Boolean ShowMainForm = true;
         public MainForm()
         {
@@ -20,7 +23,7 @@ namespace Shooting
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            ShootingForm form1 = new ShootingForm();
             form1.Show();
             //this.Hide();
         }
@@ -37,6 +40,24 @@ namespace Shooting
             JellyForm jellyForm = new JellyForm();
             jellyForm.Show();
             //this.Hide();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            IniFile ini = new IniFile();
+            try
+            {
+                ini.Load("GameData.ini");
+            }
+            catch
+            {
+
+            }
+            
+            shootingScore = ini["슈팅"]["점수"].ToInt();
+            shootingStage = ini["슈팅"]["스테이지"].ToInt();
+
+            button1.Text = "슈팅게임\r최대 점수: " + shootingScore + "\r최대 스테이지: " + shootingStage;
         }
     }
 }

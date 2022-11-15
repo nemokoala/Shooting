@@ -1,6 +1,6 @@
 ﻿namespace Shooting
 {
-    partial class Form2
+    partial class ShootingResultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,25 +37,25 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("휴먼옛체", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("휴먼옛체", 30F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(156, 39);
+            this.label1.Location = new System.Drawing.Point(6, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 51);
+            this.label1.Size = new System.Drawing.Size(611, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "Game over!!";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("휴먼옛체", 30F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(183, 139);
+            this.label2.Location = new System.Drawing.Point(-1, 136);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(237, 42);
+            this.label2.Size = new System.Drawing.Size(618, 42);
             this.label2.TabIndex = 0;
             this.label2.Text = "Score : 000";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
@@ -81,16 +81,16 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("휴먼옛체", 30F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(183, 215);
+            this.label3.Location = new System.Drawing.Point(6, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 42);
+            this.label3.Size = new System.Drawing.Size(611, 42);
             this.label3.TabIndex = 0;
             this.label3.Text = "Stage : 0";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form2
+            // ShootingResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,13 +100,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "ShootingResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

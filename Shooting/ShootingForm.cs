@@ -7,10 +7,11 @@ using System.Windows.Forms;
 
 namespace Shooting
 {
-    public partial class Form1 : Form
+    public partial class ShootingForm : Form
     {
         private int playerMove = 0;
         private int playerHp = 3;
+        private int playerMaxHp = 5;
         public int score = 0;
         public int stage = 1;     
         private static int enemy1Amount = 7;
@@ -33,14 +34,15 @@ namespace Shooting
         private int enemy2MaxHp = 100;
         private int enemy2Speed = 3;
         private int enemy2InsStage = 5;
+        private int stoneInsStage = 10;
         private int a = 0;
         private int explosionCount = 0;
         Random rnd = new Random();
-        private int bulletDelay = 7; //총알 연사 속도 (낮을 수록 빠르게 나감)
+        private int bulletDelay = 6; //총알 연사 속도 (낮을 수록 빠르게 나감)
         public int bulletDelayCount = 1; //총알 연사 속도 체크를 위한 카운트
         private int bulletCount = 0; //데이터구조로 무한 배열
         private int playerImageCount = 0; //이미지 깜빡임 카운트 20->0
-        private int bulletSpeed = 16; //총알 투사체 속도
+        private int bulletSpeed = 17; //총알 투사체 속도
         private int bulletDamage = 10;
         private int weaponLevel = 1;
         private int itemMoveSpeed = 3;
@@ -52,7 +54,7 @@ namespace Shooting
         private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
         private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
 
-        public Form1()
+        public ShootingForm()
         {
             InitializeComponent();
         }
@@ -128,26 +130,26 @@ namespace Shooting
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
-                    UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+                    UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
 
                     if (playerHp <= 0 && gameover == false)
                     {
                         gameover = true;
                         this.Hide();
-                        Form2 form2 = new Form2(this);
+                        ShootingResultForm form2 = new ShootingResultForm(this);
                         form2.ShowDialog();
                     }
                 }
 
-                if (enemy1ImageCount[i] == 16)
+                if (enemy1ImageCount[i] == 18)
                 {
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 }
-                if (enemy1ImageCount[i] == 10)
+                if (enemy1ImageCount[i] == 12)
                 {
                     Enemy1Parent[i].Image = Properties.Resources.EnemyHit;
                 }
-                if (enemy1ImageCount[i] == 0)
+                if (enemy1ImageCount[i] == 7)
                 {
                     Enemy1Parent[i].Image = Properties.Resources.Enemy;
                 }
@@ -185,26 +187,26 @@ namespace Shooting
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
                         Player.Image = Properties.Resources.PlayerHit;
                         playerImageCount = 20;
-                        UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+                        UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
 
                         if (playerHp <= 0 && gameover == false)
                         {
                             gameover = true;
                             this.Hide();
-                            Form2 form2 = new Form2(this);
+                            ShootingResultForm form2 = new ShootingResultForm(this);
                             form2.ShowDialog();
                         }
                     }
 
-                    if (enemy2ImageCount[i] == 16)
+                    if (enemy2ImageCount[i] == 18)
                     {
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                     }
-                    if (enemy2ImageCount[i] == 10)
+                    if (enemy2ImageCount[i] == 12)
                     {
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2Hit;
                     }
-                    if (enemy2ImageCount[i] == 0)
+                    if (enemy2ImageCount[i] == 7)
                     {
                         Enemy2Parent[i].Image = Properties.Resources.Enemy2;
                     }
@@ -232,7 +234,24 @@ namespace Shooting
                 }
             }
 
+            //플레이어가 돌과 충돌 시          
+            if (Player.Bounds.IntersectsWith(Stone.Bounds))
+            {
+                Stone.Left = Player.Left;
+                Stone.Top = rnd.Next(-300, 0 - Stone.Height);
+                playerHp--;
+                Player.Image = Properties.Resources.PlayerHit;
+                playerImageCount = 20;
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
 
+                if (playerHp <= 0 && gameover == false)
+                {
+                    gameover = true;
+                    this.Hide();
+                    ShootingResultForm form2 = new ShootingResultForm(this);
+                    form2.ShowDialog();
+                }
+            }
 
 
             //총알이 적과 충돌 시
@@ -324,36 +343,36 @@ namespace Shooting
                 weaponLevel++;
                 powerItemActive = false;
                 PowerItem.Left = -100;
-                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
-                if (bulletDamage == 20) //5
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
+                if (weaponLevel == 3) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
                         BulletParent[i].BackColor = Color.Orange;
                     }
                 }
-                if (bulletDamage == 30) //10
+                if (weaponLevel == 6)
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
                         BulletParent[i].BackColor = Color.LightGreen;
                     }
                 }
-                if (bulletDamage == 40) //10
+                if (weaponLevel == 10) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
                         BulletParent[i].BackColor = Color.LawnGreen;
                     }
                 }
-                if (bulletDamage == 50) //10
+                if (weaponLevel == 20) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
                         BulletParent[i].BackColor = Color.Lime;
                     }
                 }
-                if (bulletDamage == 60) //10
+                if (weaponLevel == 30) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
@@ -361,7 +380,7 @@ namespace Shooting
                         BulletParent[i].Size = new Size(12, 35);
                     }
                 }
-                if (bulletDamage == 70) //10
+                if (weaponLevel == 50) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
@@ -369,7 +388,7 @@ namespace Shooting
                         BulletParent[i].Size = new Size(24, 35);
                     }
                 }
-                if (bulletDamage == 80) //10
+                if (weaponLevel == 60) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
@@ -377,7 +396,7 @@ namespace Shooting
                         BulletParent[i].Size = new Size(36, 35);
                     }
                 }
-                if (bulletDamage == 90) //10
+                if (weaponLevel == 70) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
@@ -385,7 +404,7 @@ namespace Shooting
                         BulletParent[i].Size = new Size(38, 35);
                     }
                 }
-                if (bulletDamage == 120) //10
+                if (weaponLevel == 80) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
                     {
@@ -406,8 +425,9 @@ namespace Shooting
             //라이프 아이템
             if (Player.Bounds.IntersectsWith(LifeItem.Bounds))
             {
+                if (playerHp < playerMaxHp)
                 playerHp += 1;
-                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
                 lifeItemActive = false;
                 LifeItem.Left = -100;
             }
@@ -429,7 +449,7 @@ namespace Shooting
             {
                 ExplosionSound.Play();
                 Explosion.BringToFront();
-                explosionCount = 15;
+                explosionCount = 12;
                 for (int i = 0; i < Enemy1Parent.Length; i++)
                 {
                     Enemy1Die(i);
@@ -442,12 +462,18 @@ namespace Shooting
                         Enemy2Die(i);
                     }
                 }
+                Stone.Left = Player.Left;
+                Stone.Top = rnd.Next(-300, 0 - Stone.Height);
                 bombItemActive = false;
                 BombItem.Left = -100;
             }
             if (bombItemActive == true)
             {
-                BombItem.Top += itemMoveSpeed;
+                BombItem.Top += itemMoveSpeed+1;
+                if (BombItem.Left > Player.Left)
+                    BombItem.Left -= 1;
+                if (BombItem.Left < Player.Left)
+                    BombItem.Left += 1;
             }
             if (BombItem.Top > ClientSize.Height)
             {
@@ -459,9 +485,9 @@ namespace Shooting
             if (bulletDelayCount % 700 == 0) 
             {
                 stage = (bulletDelayCount / 700) + 1;
-                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
-                enemy1DefaultHp = enemy1MaxHp + stage * 15;
-                enemy2DefaultHp = enemy2MaxHp + stage * 40;
+                UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
+                enemy1DefaultHp = enemy1MaxHp + stage * 20;
+                enemy2DefaultHp = enemy2MaxHp + stage * 30;
                 if (stage % 3 == 0) enemy1Speed++;
                 if (stage > 5 && stage % 6 == 0) enemy2Speed++;
                 if (stage == 5)
@@ -491,6 +517,22 @@ namespace Shooting
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
                         Enemy2HpViewerParent[i].Visible = false;
                     }
+                } //적2, 적2 체력바 생성
+                if (stage == stoneInsStage)
+                {
+                    Stone.Left = Player.Left;
+                    Stone.Top = 0 - Stone.Height;
+                }
+            }
+
+            //돌 낙하
+            if (stage >= stoneInsStage)
+            {
+                Stone.Top += 3;
+                if (Stone.Top > ClientSize.Height)
+                {
+                    Stone.Left = Player.Left;
+                    Stone.Top = rnd.Next(-300, 0 - Stone.Height);
                 }
             }
             
@@ -528,8 +570,8 @@ namespace Shooting
             enemy1Hp[j] = enemy1DefaultHp;
             enemy1ImageCount[j] = 0;
             Enemy1Parent[j].Image = Properties.Resources.Enemy;
-            score += 10;
-            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+            score += 10+stage;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
 
         }
 
@@ -562,9 +604,9 @@ namespace Shooting
             Enemy2Parent[j].Left = rnd.Next(0, ClientSize.Width - Enemy2Parent[0].Width);
             enemy2Hp[j] = enemy2DefaultHp;
             enemy2ImageCount[j] = 0;
-            Enemy2Parent[j].Image = Properties.Resources.Enemy;
-            score += 20;
-            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+            Enemy2Parent[j].Image = Properties.Resources.Enemy2;
+            score += 20+stage;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -636,12 +678,13 @@ namespace Shooting
             Background1.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Top = 0 - Background2.Height;
-            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp;
+            UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
             PowerItem.Left = -100; //아이템들 위치 초기설정
             LifeItem.Left = -100;
             BombItem.Left = -100;
             Explosion.SendToBack();
             BgmSound.PlayLooping();
+            Stone.Left = -100; //돌 초기에 안보이게
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

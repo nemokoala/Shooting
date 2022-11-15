@@ -64,17 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Ini.cs" />
+    <Compile Include="ShootingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ShootingForm.Designer.cs">
+      <DependentUpon>ShootingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="ShootingResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="ShootingResultForm.Designer.cs">
+      <DependentUpon>ShootingResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JellyForm.cs">
       <SubType>Form</SubType>
@@ -96,11 +97,11 @@
     <Compile Include="ReactionForm.Designer.cs">
       <DependentUpon>ReactionForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ShootingForm.resx">
+      <DependentUpon>ShootingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="ShootingResultForm.resx">
+      <DependentUpon>ShootingResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JellyForm.resx">
       <DependentUpon>JellyForm.cs</DependentUpon>

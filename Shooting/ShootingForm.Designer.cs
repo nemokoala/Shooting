@@ -1,6 +1,6 @@
 ﻿namespace Shooting
 {
-    partial class Form1
+    partial class ShootingForm
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShootingForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.UIText = new System.Windows.Forms.Label();
             this.Explosion = new System.Windows.Forms.PictureBox();
@@ -39,6 +39,7 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
+            this.Stone = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
@@ -46,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Stone)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -137,12 +139,21 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
+            // Stone
+            // 
+            this.Stone.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Stone.Location = new System.Drawing.Point(99, 82);
+            this.Stone.Name = "Stone";
+            this.Stone.Size = new System.Drawing.Size(55, 55);
+            this.Stone.TabIndex = 5;
+            this.Stone.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 567);
-            this.Controls.Add(this.Explosion);
+            this.Controls.Add(this.Stone);
             this.Controls.Add(this.BombItem);
             this.Controls.Add(this.LifeItem);
             this.Controls.Add(this.PowerItem);
@@ -150,6 +161,7 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.Background2);
             this.Controls.Add(this.Background1);
+            this.Controls.Add(this.Explosion);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -165,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Stone)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,6 +194,7 @@
         private System.Windows.Forms.PictureBox LifeItem;
         private System.Windows.Forms.PictureBox BombItem;
         private System.Windows.Forms.PictureBox Explosion;
+        private System.Windows.Forms.PictureBox Stone;
     }
 }
 
