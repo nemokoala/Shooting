@@ -134,10 +134,10 @@ namespace Shooting
 
                     if (playerHp <= 0 && gameover == false)
                     {
-                        gameover = true;
-                        this.Hide();
-                        ShootingResultForm form2 = new ShootingResultForm(this);
-                        form2.ShowDialog();
+                        gameover = true;                        
+                        ResultForm resultform = new ResultForm(this,"Shooting");
+                        resultform.Show();
+                        this.Close();
                     }
                 }
 
@@ -191,10 +191,10 @@ namespace Shooting
 
                         if (playerHp <= 0 && gameover == false)
                         {
-                            gameover = true;
-                            this.Hide();
-                            ShootingResultForm form2 = new ShootingResultForm(this);
-                            form2.ShowDialog();
+                            gameover = true;                            
+                            ResultForm resultform = new ResultForm(this, "Shooting");
+                            resultform.Show();
+                            this.Close();
                         }
                     }
 
@@ -247,9 +247,9 @@ namespace Shooting
                 if (playerHp <= 0 && gameover == false)
                 {
                     gameover = true;
-                    this.Hide();
-                    ShootingResultForm form2 = new ShootingResultForm(this);
-                    form2.ShowDialog();
+                    ResultForm resultform = new ResultForm(this, "Shooting");
+                    resultform.Show();
+                    this.Close();
                 }
             }
 
@@ -689,7 +689,7 @@ namespace Shooting
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         

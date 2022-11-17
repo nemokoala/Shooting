@@ -68,7 +68,7 @@
             // 
             this.Enemy2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Enemy2.Image = global::Shooting.Properties.Resources.JellyEnemy2;
-            this.Enemy2.Location = new System.Drawing.Point(748, 208);
+            this.Enemy2.Location = new System.Drawing.Point(748, 220);
             this.Enemy2.Margin = new System.Windows.Forms.Padding(2);
             this.Enemy2.Name = "Enemy2";
             this.Enemy2.Size = new System.Drawing.Size(115, 89);
@@ -135,7 +135,7 @@
             // 
             this.PlayerMask.Location = new System.Drawing.Point(71, 270);
             this.PlayerMask.Name = "PlayerMask";
-            this.PlayerMask.Size = new System.Drawing.Size(37, 83);
+            this.PlayerMask.Size = new System.Drawing.Size(19, 67);
             this.PlayerMask.TabIndex = 3;
             this.PlayerMask.TabStop = false;
             // 

@@ -18,6 +18,8 @@ namespace Shooting
         private Boolean clickEnable = false;
         Random random = new Random();
         ReactionForm reactionForm;
+        private int preScore = 10000;
+
         public ReactionForm()
         {
             InitializeComponent();
@@ -75,8 +77,23 @@ namespace Shooting
             if (clickEnable == true)
             {
                 time = -1;
-                label1.Text = ms + "ms";
+                
                 label1.BackColor = Color.LightGreen;
+                IniFile ini = new IniFile();
+                try { ini.Load("GameData.ini"); } catch { };
+                preScore = ini["반응속도"]["점수"].ToInt();
+                label1.Text = ms + "ms\n 최고 기록:" + preScore + "ms";
+                if (ms < preScore)
+                {
+                    if (preScore != 10000)
+                    label1.Text = ms + "ms\n최고 기록 달성!\n이전 최고 기록: " + preScore + "ms";
+                    if (preScore == 10000 || preScore == 0)
+                        label1.Text = ms + "ms\n이전 최고 기록: 없음";
+                    ini["반응속도"]["점수"] = ms;
+                }
+
+
+                ini.Save("GameData.ini");
             }
 
             if (clickEnable == false && time > 0)

@@ -15,6 +15,8 @@ namespace Shooting
     {
         private int shootingStage = 0;
         private int shootingScore = 0;
+        private int jellyScore = 0;
+        private int reactionScore = 0;
         public static Boolean ShowMainForm = true;
         public MainForm()
         {
@@ -56,8 +58,12 @@ namespace Shooting
             
             shootingScore = ini["슈팅"]["점수"].ToInt();
             shootingStage = ini["슈팅"]["스테이지"].ToInt();
+            jellyScore = ini["젤리"]["점수"].ToInt();
+            reactionScore = ini["반응속도"]["점수"].ToInt();
 
             button1.Text = "슈팅게임\r최대 점수: " + shootingScore + "\r최대 스테이지: " + shootingStage;
+            button2.Text = "반응속도 게임\r최대 점수: " + reactionScore;
+            button3.Text = "젤리게임\r최대 점수: " + jellyScore;
         }
     }
 }

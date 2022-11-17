@@ -71,11 +71,11 @@
     <Compile Include="ShootingForm.Designer.cs">
       <DependentUpon>ShootingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShootingResultForm.cs">
+    <Compile Include="ResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShootingResultForm.Designer.cs">
-      <DependentUpon>ShootingResultForm.cs</DependentUpon>
+    <Compile Include="ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JellyForm.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="ShootingForm.resx">
       <DependentUpon>ShootingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShootingResultForm.resx">
-      <DependentUpon>ShootingResultForm.cs</DependentUpon>
+    <EmbeddedResource Include="ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JellyForm.resx">
       <DependentUpon>JellyForm.cs</DependentUpon>

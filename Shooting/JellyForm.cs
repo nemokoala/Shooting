@@ -15,7 +15,7 @@ namespace Shooting
         private short playerJump = 0;
         private short playerDown = 0;
         private Boolean playerSit = false;
-        private int score = 0;
+        public int Score = 0;
         private int enemySpeed = 12;
         private int playerDefaultTop = 0;
         Random rnd = new Random();
@@ -102,12 +102,12 @@ namespace Shooting
             //충돌 설정
             if (PlayerMask.Bounds.IntersectsWith(Enemy1.Bounds))
             {
-                Application.Restart();
+                GameOver();
             }
 
             if (PlayerMask.Bounds.IntersectsWith(Enemy2.Bounds) && playerSit == false)
             {
-                Application.Restart();
+                GameOver();
             }
 
             //겹치기 해결
@@ -129,9 +129,9 @@ namespace Shooting
             }
 
             //스코어 설정
-            score += 3;
-            UIText.Text = "Score : " + score;
-            enemySpeed = (score / 1000) + 8;
+            Score += 3;
+            UIText.Text = "Score : " + Score;
+            enemySpeed = (Score / 1000) + 8;
         }
 
         private void JellyForm_KeyDown(object sender, KeyEventArgs e)
@@ -173,6 +173,12 @@ namespace Shooting
             PlayerMask.Visible = false;
         }
 
+        private void GameOver()
+        {
+            ResultForm resultform = new ResultForm(this, "Jelly");
+            resultform.Show();
+            this.Close();
+        }
         
     }
 }
