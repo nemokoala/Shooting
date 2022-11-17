@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.Media;
 using System.Windows.Forms;
 
-
 namespace Shooting
 {
     public partial class ShootingForm : Form
@@ -53,10 +52,28 @@ namespace Shooting
         private SoundPlayer GunSound = new SoundPlayer("gun.wav");
         private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
         private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
+        
+
 
         public ShootingForm()
         {
             InitializeComponent();
+            MXP.URL = @"bgm.wav";
+            MXP.settings.playCount = 999;
+            MXP.Ctlcontrols.play();
+            MXP.Visible = false;
+
+            MXP2.URL = @"explosion.wav";
+            //MXP2.settings.playCount = 999;
+            MXP2.Ctlcontrols.stop();
+            MXP2.Visible = false;
+            MXP2.settings.volume = 200;
+
+            MXP3.URL = @"hit.wav";
+            //MXP2.settings.playCount = 999;
+            MXP3.Ctlcontrols.stop();
+            MXP3.Visible = false;
+            MXP3.settings.volume = 100;
         }
 
 
@@ -261,6 +278,8 @@ namespace Shooting
                 {
                     if (BulletParent[i].Bounds.IntersectsWith(Enemy1Parent[j].Bounds))
                     {
+                        MXP3.Ctlcontrols.stop();
+                        MXP3.Ctlcontrols.play();
                         enemy1Hp[j] -= bulletDamage;
                         BulletParent[i].Top = -100;
                         BulletParent[i].Left = -100;
@@ -283,6 +302,8 @@ namespace Shooting
                     {
                         if (BulletParent[i].Bounds.IntersectsWith(Enemy2Parent[j].Bounds))
                         {
+                            MXP3.Ctlcontrols.stop();
+                            MXP3.Ctlcontrols.play();
                             enemy2Hp[j] -= bulletDamage;
                             BulletParent[i].Top = -100;
                             BulletParent[i].Left = -100;
@@ -313,7 +334,7 @@ namespace Shooting
                 Point p = new Point(x, y);
                 BulletParent[i].Location = p;
                 bulletCount++;
-                //GunSound.Play();
+                GunSound.Play();                
             }
 
             for (int i = 0; i < BulletParent.Length; i++) //총알 이동
@@ -447,6 +468,7 @@ namespace Shooting
             //폭탄 아이템
             if (Player.Bounds.IntersectsWith(BombItem.Bounds)) 
             {
+                MXP2.Ctlcontrols.play();
                 ExplosionSound.Play();
                 Explosion.BringToFront();
                 explosionCount = 12;
@@ -486,9 +508,9 @@ namespace Shooting
             {
                 stage = (bulletDelayCount / 700) + 1;
                 UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
-                enemy1DefaultHp = enemy1MaxHp + stage * 20;
-                enemy2DefaultHp = enemy2MaxHp + stage * 30;
-                if (stage % 3 == 0) enemy1Speed++;
+                enemy1DefaultHp = enemy1MaxHp + stage * 15;
+                enemy2DefaultHp = enemy2MaxHp + stage * 25;
+                if (stage % 4 == 0) enemy1Speed++;
                 if (stage > 5 && stage % 6 == 0) enemy2Speed++;
                 if (stage == 5)
                 {

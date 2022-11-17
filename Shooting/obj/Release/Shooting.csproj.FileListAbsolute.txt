@@ -26,8 +26,6 @@ C:\CsProject\RecentGit\Shooting\bin\Release\Shooting.exe
 C:\CsProject\RecentGit\Shooting\bin\Release\Shooting.pdb
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.AssemblyReference.cache
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.SuggestedBindingRedirects.cache
-C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Form1.resources
-C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Form2.resources
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.MainForm.resources
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.Properties.Resources.resources
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.ReactionForm.resources
@@ -35,3 +33,12 @@ C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.GenerateResource.cac
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.CoreCompileInputs.cache
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.exe
 C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.pdb
+C:\CsProject\RecentGit\Shooting\bin\Release\Interop.WMPLib.dll
+C:\CsProject\RecentGit\Shooting\bin\Release\AxInterop.WMPLib.dll
+C:\CsProject\RecentGit\Shooting\obj\Release\Interop.MediaPlayer.dll
+C:\CsProject\RecentGit\Shooting\obj\Release\Interop.WMPLib.dll
+C:\CsProject\RecentGit\Shooting\obj\Release\AxInterop.WMPLib.dll
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.csproj.ResolveComReference.cache
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.ShootingForm.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.ResultForm.resources
+C:\CsProject\RecentGit\Shooting\obj\Release\Shooting.JellyForm.resources

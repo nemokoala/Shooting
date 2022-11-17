@@ -32,22 +32,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShootingForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.UIText = new System.Windows.Forms.Label();
-            this.Explosion = new System.Windows.Forms.PictureBox();
+            this.Stone = new System.Windows.Forms.PictureBox();
             this.BombItem = new System.Windows.Forms.PictureBox();
             this.LifeItem = new System.Windows.Forms.PictureBox();
             this.PowerItem = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
-            this.Stone = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
+            this.Explosion = new System.Windows.Forms.PictureBox();
+            this.MXP = new AxWMPLib.AxWindowsMediaPlayer();
+            this.MXP2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.MXP3 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.Stone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Stone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -68,15 +74,16 @@
             this.UIText.TabIndex = 1;
             this.UIText.Text = "Score : 0\r\n";
             // 
-            // Explosion
+            // Stone
             // 
-            this.Explosion.Image = global::Shooting.Properties.Resources.Explosion;
-            this.Explosion.Location = new System.Drawing.Point(0, -1);
-            this.Explosion.Name = "Explosion";
-            this.Explosion.Size = new System.Drawing.Size(319, 569);
-            this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Explosion.TabIndex = 4;
-            this.Explosion.TabStop = false;
+            this.Stone.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.Stone.Image = global::Shooting.Properties.Resources.Stone;
+            this.Stone.Location = new System.Drawing.Point(99, 82);
+            this.Stone.Name = "Stone";
+            this.Stone.Size = new System.Drawing.Size(55, 55);
+            this.Stone.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Stone.TabIndex = 5;
+            this.Stone.TabStop = false;
             // 
             // BombItem
             // 
@@ -139,20 +146,51 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
-            // Stone
+            // Explosion
             // 
-            this.Stone.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.Stone.Location = new System.Drawing.Point(99, 82);
-            this.Stone.Name = "Stone";
-            this.Stone.Size = new System.Drawing.Size(55, 55);
-            this.Stone.TabIndex = 5;
-            this.Stone.TabStop = false;
+            this.Explosion.Image = global::Shooting.Properties.Resources.Explosion;
+            this.Explosion.Location = new System.Drawing.Point(0, -1);
+            this.Explosion.Name = "Explosion";
+            this.Explosion.Size = new System.Drawing.Size(319, 569);
+            this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Explosion.TabIndex = 4;
+            this.Explosion.TabStop = false;
             // 
-            // Form1
+            // MXP
+            // 
+            this.MXP.Enabled = true;
+            this.MXP.Location = new System.Drawing.Point(20, 392);
+            this.MXP.Name = "MXP";
+            this.MXP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP.OcxState")));
+            this.MXP.Size = new System.Drawing.Size(75, 23);
+            this.MXP.TabIndex = 6;
+            // 
+            // MXP2
+            // 
+            this.MXP2.Enabled = true;
+            this.MXP2.Location = new System.Drawing.Point(20, 458);
+            this.MXP2.Name = "MXP2";
+            this.MXP2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP2.OcxState")));
+            this.MXP2.Size = new System.Drawing.Size(75, 23);
+            this.MXP2.TabIndex = 6;
+            // 
+            // MXP3
+            // 
+            this.MXP3.Enabled = true;
+            this.MXP3.Location = new System.Drawing.Point(20, 509);
+            this.MXP3.Name = "MXP3";
+            this.MXP3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP3.OcxState")));
+            this.MXP3.Size = new System.Drawing.Size(75, 23);
+            this.MXP3.TabIndex = 6;
+            // 
+            // ShootingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 567);
+            this.Controls.Add(this.MXP3);
+            this.Controls.Add(this.MXP2);
+            this.Controls.Add(this.MXP);
             this.Controls.Add(this.Stone);
             this.Controls.Add(this.BombItem);
             this.Controls.Add(this.LifeItem);
@@ -163,21 +201,24 @@
             this.Controls.Add(this.Background1);
             this.Controls.Add(this.Explosion);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "ShootingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Stone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PowerItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Stone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,6 +236,9 @@
         private System.Windows.Forms.PictureBox BombItem;
         private System.Windows.Forms.PictureBox Explosion;
         private System.Windows.Forms.PictureBox Stone;
+        private AxWMPLib.AxWindowsMediaPlayer MXP;
+        private AxWMPLib.AxWindowsMediaPlayer MXP2;
+        private AxWMPLib.AxWindowsMediaPlayer MXP3;
     }
 }
 

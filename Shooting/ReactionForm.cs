@@ -52,7 +52,7 @@ namespace Shooting
 
         private void ReactionForm_Load(object sender, EventArgs e)
         {
-            alertTime = random.Next(100,500);
+            alertTime = random.Next(50,400);
             label1.Text = "대기\r\n화면이 하늘색이 되면 바로 클릭하세요";
         }
 
@@ -68,7 +68,7 @@ namespace Shooting
             {
                 ms = 0;
                 time = 0;
-                alertTime = random.Next(100, 500);
+                alertTime = random.Next(50, 400);
                 clickEnable = false;
                 label1.Text = "대기\r\n화면이 하늘색이 되면 바로 클릭하세요";
                 label1.BackColor = Color.FromArgb(224, 224, 224);
@@ -86,14 +86,20 @@ namespace Shooting
                 if (ms < preScore)
                 {
                     if (preScore != 10000)
-                    label1.Text = ms + "ms\n최고 기록 달성!\n이전 최고 기록: " + preScore + "ms";
-                    if (preScore == 10000 || preScore == 0)
-                        label1.Text = ms + "ms\n이전 최고 기록: 없음";
+                    label1.Text = ms + "ms\n최고 기록 달성!\n이전 최고 기록: " + preScore + "ms";                  
                     ini["반응속도"]["점수"] = ms;
+                    ini.Save("GameData.ini");
                 }
+                try { ini.Load("GameData.ini"); } catch { };
+                preScore = ini["반응속도"]["점수"].ToInt();
+                if (preScore == 10000 || preScore == 0)
+                {
+                    label1.Text = ms + "ms\n이전 최고 기록: 없음";
+                    ini["반응속도"]["점수"] = ms;
+                    ini.Save("GameData.ini");
+                }
+                    
 
-
-                ini.Save("GameData.ini");
             }
 
             if (clickEnable == false && time > 0)

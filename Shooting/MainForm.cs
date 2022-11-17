@@ -62,7 +62,7 @@ namespace Shooting
             reactionScore = ini["반응속도"]["점수"].ToInt();
 
             button1.Text = "슈팅게임\r최대 점수: " + shootingScore + "\r최대 스테이지: " + shootingStage;
-            button2.Text = "반응속도 게임\r최대 점수: " + reactionScore;
+            button2.Text = "반응속도 게임\r최고 반응속도: " + reactionScore + "ms";
             button3.Text = "젤리게임\r최대 점수: " + jellyScore;
         }
     }
