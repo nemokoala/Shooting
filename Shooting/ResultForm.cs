@@ -92,5 +92,10 @@ namespace Shooting
         {
             Application.Exit();
         }
+
+        private void ButtonMain_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -30,8 +30,9 @@
         {
             this.UI1 = new System.Windows.Forms.Label();
             this.UI2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonMain = new System.Windows.Forms.Button();
+            this.ButtonExit = new System.Windows.Forms.Button();
+            this.ButtonRetry = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI1
@@ -56,35 +57,47 @@
             this.UI2.Text = "Score : 000";
             this.UI2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // ButtonMain
             // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(82, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 59);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "게임 재시작";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonMain.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ButtonMain.Location = new System.Drawing.Point(205, 271);
+            this.ButtonMain.Name = "ButtonMain";
+            this.ButtonMain.Size = new System.Drawing.Size(196, 59);
+            this.ButtonMain.TabIndex = 1;
+            this.ButtonMain.Text = "메인으로";
+            this.ButtonMain.UseVisualStyleBackColor = true;
+            this.ButtonMain.Click += new System.EventHandler(this.ButtonMain_Click);
             // 
-            // button2
+            // ButtonExit
             // 
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(342, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 59);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "게임 종료";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ButtonExit.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ButtonExit.Location = new System.Drawing.Point(205, 346);
+            this.ButtonExit.Name = "ButtonExit";
+            this.ButtonExit.Size = new System.Drawing.Size(196, 59);
+            this.ButtonExit.TabIndex = 1;
+            this.ButtonExit.Text = "게임 종료";
+            this.ButtonExit.UseVisualStyleBackColor = true;
+            this.ButtonExit.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // ButtonRetry
+            // 
+            this.ButtonRetry.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ButtonRetry.Location = new System.Drawing.Point(205, 198);
+            this.ButtonRetry.Name = "ButtonRetry";
+            this.ButtonRetry.Size = new System.Drawing.Size(196, 59);
+            this.ButtonRetry.TabIndex = 1;
+            this.ButtonRetry.Text = "다시하기";
+            this.ButtonRetry.UseVisualStyleBackColor = true;
+            this.ButtonRetry.Click += new System.EventHandler(this.button1_Click);
             // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 398);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(620, 426);
+            this.Controls.Add(this.ButtonExit);
+            this.Controls.Add(this.ButtonRetry);
+            this.Controls.Add(this.ButtonMain);
             this.Controls.Add(this.UI2);
             this.Controls.Add(this.UI1);
             this.Name = "ResultForm";
@@ -100,7 +113,8 @@
 
         private System.Windows.Forms.Label UI1;
         private System.Windows.Forms.Label UI2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonMain;
+        private System.Windows.Forms.Button ButtonExit;
+        private System.Windows.Forms.Button ButtonRetry;
     }
 }
