@@ -50,8 +50,8 @@ namespace Shooting
         private Boolean bombItemActive = false;
         private Boolean gameover = false;
         private SoundPlayer GunSound = new SoundPlayer("gun.wav");
-        private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
-        private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
+        //private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
+        //private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
         
 
 
@@ -278,8 +278,11 @@ namespace Shooting
                 {
                     if (BulletParent[i].Bounds.IntersectsWith(Enemy1Parent[j].Bounds))
                     {
-                        MXP3.Ctlcontrols.stop();
-                        MXP3.Ctlcontrols.play();
+                        try {
+                            //MXP3.Ctlcontrols.stop();
+                            //MXP3.Ctlcontrols.play();
+                        } catch { }
+                        
                         enemy1Hp[j] -= bulletDamage;
                         BulletParent[i].Top = -100;
                         BulletParent[i].Left = -100;
@@ -289,7 +292,7 @@ namespace Shooting
                         Enemy1HpViewerParent[j].Top = Enemy1Parent[j].Top - Enemy1HpViewerParent[j].Height - 5;
                         Enemy1HpViewerParent[j].Left = Enemy1Parent[j].Left + Enemy1Parent[j].Width / 2 - Enemy1HpViewerParent[j].Width / 2;
                         Enemy1HpViewerParent[j].Visible = true;
-                        enemy1HpViewerEnable[j] = 40; //체력바 표시 시간
+                        enemy1HpViewerEnable[j] = 10; //체력바 표시 시간
                         if (enemy1Hp[j] <= 0) //적 체력이 0이 됐을 때
                         {
                             Enemy1Die(j);
@@ -302,8 +305,8 @@ namespace Shooting
                     {
                         if (BulletParent[i].Bounds.IntersectsWith(Enemy2Parent[j].Bounds))
                         {
-                            MXP3.Ctlcontrols.stop();
-                            MXP3.Ctlcontrols.play();
+                            //MXP3.Ctlcontrols.stop();
+                            //MXP3.Ctlcontrols.play();
                             enemy2Hp[j] -= bulletDamage;
                             BulletParent[i].Top = -100;
                             BulletParent[i].Left = -100;
@@ -312,7 +315,7 @@ namespace Shooting
                             Enemy2HpViewerParent[j].Top = Enemy2Parent[j].Top - Enemy2HpViewerParent[j].Height - 5;
                             Enemy2HpViewerParent[j].Left = Enemy2Parent[j].Left + Enemy2Parent[j].Width / 2 - Enemy2HpViewerParent[j].Width / 2;
                             Enemy2HpViewerParent[j].Visible = true;
-                            enemy2HpViewerEnable[j] = 40; //체력바 표시 시간
+                            enemy2HpViewerEnable[j] = 10; //체력바 표시 시간
                             if (enemy2Hp[j] <= 0) //적 체력이 0이 됐을 때
                             {
                                 Enemy2Die(j);
@@ -469,7 +472,6 @@ namespace Shooting
             if (Player.Bounds.IntersectsWith(BombItem.Bounds)) 
             {
                 MXP2.Ctlcontrols.play();
-                ExplosionSound.Play();
                 Explosion.BringToFront();
                 explosionCount = 12;
                 for (int i = 0; i < Enemy1Parent.Length; i++)
@@ -705,15 +707,16 @@ namespace Shooting
             LifeItem.Left = -100;
             BombItem.Left = -100;
             Explosion.SendToBack();
-            BgmSound.PlayLooping();
+            //BgmSound.PlayLooping();
             Stone.Left = -100; //돌 초기에 안보이게
+            //Background1.Visible = false;
+            //Background2.Visible = false;
+            //Explosion.Visible = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Application.Exit();
+            Application.Exit();
         }
-
-        
     }
 }

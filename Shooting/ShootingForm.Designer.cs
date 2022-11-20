@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShootingForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.UIText = new System.Windows.Forms.Label();
+            this.MXP = new AxWMPLib.AxWindowsMediaPlayer();
+            this.MXP2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.MXP3 = new AxWMPLib.AxWindowsMediaPlayer();
             this.Stone = new System.Windows.Forms.PictureBox();
             this.BombItem = new System.Windows.Forms.PictureBox();
             this.LifeItem = new System.Windows.Forms.PictureBox();
@@ -40,9 +43,9 @@
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
             this.Explosion = new System.Windows.Forms.PictureBox();
-            this.MXP = new AxWMPLib.AxWindowsMediaPlayer();
-            this.MXP2 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.MXP3 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
@@ -51,9 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -73,6 +73,33 @@
             this.UIText.Size = new System.Drawing.Size(99, 30);
             this.UIText.TabIndex = 1;
             this.UIText.Text = "Score : 0\r\n";
+            // 
+            // MXP
+            // 
+            this.MXP.Enabled = true;
+            this.MXP.Location = new System.Drawing.Point(20, 392);
+            this.MXP.Name = "MXP";
+            this.MXP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP.OcxState")));
+            this.MXP.Size = new System.Drawing.Size(75, 23);
+            this.MXP.TabIndex = 6;
+            // 
+            // MXP2
+            // 
+            this.MXP2.Enabled = true;
+            this.MXP2.Location = new System.Drawing.Point(20, 458);
+            this.MXP2.Name = "MXP2";
+            this.MXP2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP2.OcxState")));
+            this.MXP2.Size = new System.Drawing.Size(75, 23);
+            this.MXP2.TabIndex = 6;
+            // 
+            // MXP3
+            // 
+            this.MXP3.Enabled = true;
+            this.MXP3.Location = new System.Drawing.Point(20, 509);
+            this.MXP3.Name = "MXP3";
+            this.MXP3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP3.OcxState")));
+            this.MXP3.Size = new System.Drawing.Size(75, 23);
+            this.MXP3.TabIndex = 6;
             // 
             // Stone
             // 
@@ -128,7 +155,7 @@
             // 
             // Background2
             // 
-            this.Background2.Image = ((System.Drawing.Image)(resources.GetObject("Background2.Image")));
+            this.Background2.Image = global::Shooting.Properties.Resources.back;
             this.Background2.Location = new System.Drawing.Point(0, 281);
             this.Background2.Name = "Background2";
             this.Background2.Size = new System.Drawing.Size(413, 548);
@@ -138,7 +165,7 @@
             // 
             // Background1
             // 
-            this.Background1.Image = ((System.Drawing.Image)(resources.GetObject("Background1.Image")));
+            this.Background1.Image = global::Shooting.Properties.Resources.back;
             this.Background1.Location = new System.Drawing.Point(0, -1);
             this.Background1.Name = "Background1";
             this.Background1.Size = new System.Drawing.Size(413, 548);
@@ -155,33 +182,6 @@
             this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Explosion.TabIndex = 4;
             this.Explosion.TabStop = false;
-            // 
-            // MXP
-            // 
-            this.MXP.Enabled = true;
-            this.MXP.Location = new System.Drawing.Point(20, 392);
-            this.MXP.Name = "MXP";
-            this.MXP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP.OcxState")));
-            this.MXP.Size = new System.Drawing.Size(75, 23);
-            this.MXP.TabIndex = 6;
-            // 
-            // MXP2
-            // 
-            this.MXP2.Enabled = true;
-            this.MXP2.Location = new System.Drawing.Point(20, 458);
-            this.MXP2.Name = "MXP2";
-            this.MXP2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP2.OcxState")));
-            this.MXP2.Size = new System.Drawing.Size(75, 23);
-            this.MXP2.TabIndex = 6;
-            // 
-            // MXP3
-            // 
-            this.MXP3.Enabled = true;
-            this.MXP3.Location = new System.Drawing.Point(20, 509);
-            this.MXP3.Name = "MXP3";
-            this.MXP3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP3.OcxState")));
-            this.MXP3.Size = new System.Drawing.Size(75, 23);
-            this.MXP3.TabIndex = 6;
             // 
             // ShootingForm
             // 
@@ -208,6 +208,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).EndInit();
@@ -216,9 +219,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MXP3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

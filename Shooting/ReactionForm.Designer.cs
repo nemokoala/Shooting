@@ -39,8 +39,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 15.85714F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(763, 611);
+            this.label1.Size = new System.Drawing.Size(486, 349);
             this.label1.TabIndex = 0;
             this.label1.Text = "대기";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,12 +56,14 @@
             // 
             // ReactionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 611);
+            this.ClientSize = new System.Drawing.Size(486, 349);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReactionForm";
             this.Text = "ReactionForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReactionForm_FormClosing);
             this.Load += new System.EventHandler(this.ReactionForm_Load);
             this.ResumeLayout(false);
 

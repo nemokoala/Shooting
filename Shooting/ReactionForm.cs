@@ -19,9 +19,11 @@ namespace Shooting
         Random random = new Random();
         ReactionForm reactionForm;
         private int preScore = 10000;
+        MainForm mainForm;
 
-        public ReactionForm()
+        public ReactionForm(MainForm form)
         {
+            mainForm = form;
             InitializeComponent();
             reactionForm = this;
         }
@@ -109,6 +111,11 @@ namespace Shooting
                 label1.BackColor = Color.Red;
             }
 
+        }
+
+        private void ReactionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Visible = true;
         }
     }
 }

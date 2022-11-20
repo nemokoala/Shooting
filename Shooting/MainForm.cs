@@ -27,21 +27,21 @@ namespace Shooting
         {
             ShootingForm form1 = new ShootingForm();
             form1.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ReactionForm reactionForm = new ReactionForm();
+            ReactionForm reactionForm = new ReactionForm(this);
             reactionForm.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             JellyForm jellyForm = new JellyForm();
             jellyForm.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
