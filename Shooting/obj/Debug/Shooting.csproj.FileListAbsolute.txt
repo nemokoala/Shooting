@@ -63,3 +63,5 @@ C:\CsProject\Shooting\obj\Debug\Interop.MediaPlayer.dll
 C:\CsProject\Shooting\obj\Debug\Interop.WMPLib.dll
 C:\CsProject\Shooting\obj\Debug\AxInterop.WMPLib.dll
 C:\CsProject\Shooting\obj\Debug\Shooting.csproj.ResolveComReference.cache
+C:\CsProject\Shooting\obj\Debug\Test.YTMT.resources
+C:\CsProject\Shooting\obj\Debug\Test.YTMTEND.resources

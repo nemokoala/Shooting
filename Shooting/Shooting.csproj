@@ -109,6 +109,18 @@
     <Compile Include="ReactionForm.Designer.cs">
       <DependentUpon>ReactionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="YTMT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YTMT.Designer.cs">
+      <DependentUpon>YTMT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YTMTEND.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YTMTEND.Designer.cs">
+      <DependentUpon>YTMTEND.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ShootingForm.resx">
       <DependentUpon>ShootingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +145,12 @@
     </Compile>
     <EmbeddedResource Include="ReactionForm.resx">
       <DependentUpon>ReactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YTMT.resx">
+      <DependentUpon>YTMT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YTMTEND.resx">
+      <DependentUpon>YTMTEND.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,6 +282,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purple.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

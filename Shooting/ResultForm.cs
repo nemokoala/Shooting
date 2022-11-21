@@ -33,7 +33,21 @@ namespace Shooting
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            if (gameName == "Shooting")
+            {
+                _ShootingForm = new ShootingForm();
+                _ShootingForm.Show();
+                this.Close();
+            }
+
+            if (gameName == "Jelly")
+            {
+                _JellyForm = new JellyForm();
+                _JellyForm.Show();
+                this.Close();
+            }
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,12 +104,12 @@ namespace Shooting
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void ButtonMain_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Restart();
         }
     }
 }

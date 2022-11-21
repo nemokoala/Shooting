@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Test;
 
 namespace Shooting
 { 
@@ -72,6 +72,12 @@ namespace Shooting
             GameInit gameInit = new GameInit();
             gameInit.Show();
             //this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            YTMT yTMT = new YTMT();
+            yTMT.Show();
         }
     }
 }
