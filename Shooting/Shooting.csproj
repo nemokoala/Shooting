@@ -64,6 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MineForm.Designer.cs">
+      <DependentUpon>MineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameInit.Designer.cs">
+      <DependentUpon>GameInit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ini.cs" />
     <Compile Include="ShootingForm.cs">
       <SubType>Form</SubType>

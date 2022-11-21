@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MineSweeperFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,6 +65,13 @@ namespace Shooting
             button1.Text = "슈팅게임\r최대 점수: " + shootingScore + "\r최대 스테이지: " + shootingStage;
             button2.Text = "반응속도 게임\r최고 반응속도: " + reactionScore + "ms";
             button3.Text = "젤리게임\r최대 점수: " + jellyScore;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GameInit gameInit = new GameInit();
+            gameInit.Show();
+            //this.Hide();
         }
     }
 }
