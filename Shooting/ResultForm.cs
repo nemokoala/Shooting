@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MineSweeperFinal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Test;
 
 namespace Shooting
 {
@@ -15,11 +17,14 @@ namespace Shooting
         ShootingForm _ShootingForm;
         JellyForm _JellyForm;
         ReactionForm _ReactionForm;
+        MainForm _MainForm;
+        YTMT _YTMTForm;
+        MineForm _MineForm;
         int preScore = 0;
         int preStage = 1;
 
         private String gameName;
-        public ResultForm(Form form, string gameName)
+        public ResultForm(Form form, string gameName, MainForm mainForm)
         {
             if (gameName == "Shooting")
             _ShootingForm = (ShootingForm)form;
@@ -27,7 +32,12 @@ namespace Shooting
                 _JellyForm = (JellyForm)form;
             if (gameName == "Reaction")
                 _ReactionForm = (ReactionForm)form;
+            if (gameName == "YTMT")
+                _YTMTForm = (YTMT)form;
+            if (gameName == "Mine")
+                _MineForm = (MineForm)form;
             this.gameName = gameName;
+            _MainForm = mainForm;
             InitializeComponent();            
         }
 
@@ -35,18 +45,22 @@ namespace Shooting
         {
             if (gameName == "Shooting")
             {
-                _ShootingForm = new ShootingForm();
+                _ShootingForm = new ShootingForm(_MainForm);
                 _ShootingForm.Show();
                 this.Close();
             }
-
             if (gameName == "Jelly")
             {
-                _JellyForm = new JellyForm();
+                _JellyForm = new JellyForm(_MainForm);
                 _JellyForm.Show();
                 this.Close();
             }
-
+            if (gameName == "YTMT")
+            {
+                _YTMTForm = new YTMT();
+                _YTMTForm.Show();
+                this.Close();
+            }
 
         }
 
@@ -93,11 +107,46 @@ namespace Shooting
                     UI1.Text = "Game over! 최고 기록 달성!";
                     ini["젤리"]["점수"] = _JellyForm.Score;
                 }
-
-                
+             
                 ini.Save("GameData.ini");
                 UI2.Text = "Score: " + _JellyForm.Score + "   최고 점수: " + preScore;
                     
+            }
+
+            if (gameName == "YTMT")
+            {
+                this.Text = gameName;
+                UI2.Text = "Score : " + _YTMTForm.score;
+                IniFile ini = new IniFile();
+                try { ini.Load("GameData.ini"); } catch { };
+                preScore = ini["니편내편"]["점수"].ToInt();
+                if (_YTMTForm.score > preScore)
+                {
+                    UI1.Text = "Game over! 최고 기록 달성!";
+                    ini["니편내편"]["점수"] = _YTMTForm.score;
+                }
+
+                ini.Save("GameData.ini");
+                UI2.Text = "Score: " + _YTMTForm.score + "   최고 점수: " + preScore;
+
+            }
+
+            if (gameName == "Mine")
+            {
+                this.Text = gameName;
+                UI2.Text = "Score : " + _YTMTForm.score;
+                IniFile ini = new IniFile();
+                try { ini.Load("GameData.ini"); } catch { };
+                preScore = ini["니편내편"]["점수"].ToInt();
+                if (_YTMTForm.score > preScore)
+                {
+                    UI1.Text = "Game over! 최고 기록 달성!";
+                    ini["니편내편"]["점수"] = _YTMTForm.score;
+                }
+
+                ini.Save("GameData.ini");
+                UI2.Text = "Score: " + _YTMTForm.score + "   최고 점수: " + preScore;
+
             }
 
         }

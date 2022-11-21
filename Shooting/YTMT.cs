@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 using System.Security.Cryptography.X509Certificates;
+using Shooting;
 
 namespace Test
 {
@@ -26,7 +27,7 @@ namespace Test
         
         private int BlockRange = 0;   //블록 범위
         private int number = 2;       //랜덤 함수의 범위        
-        private int score = 0;        //점수
+        public int score = 0;        //점수
         private bool DontRunEvent = true; // 이벤트 할당, 해제에 도움을 주는 값. 값이 true면 키보드 입력이벤트가 실행되지않음 
         /*게임시작전 카운트다운에 도움을 주는 값 */
         private int DontRunEventTime = 0;
@@ -154,8 +155,9 @@ namespace Test
             {
                 timer1.Enabled = false;
                 DontRunEvent = true;
-                YTMTEND form2 = new YTMTEND(score);
-                form2.Show();
+                ResultForm resultform = new ResultForm(this, "YTMT", null);
+                resultform.Show();
+                this.Close();
             }
 
 
@@ -200,6 +202,12 @@ namespace Test
             CountDown.Text = "" + Count;
             Count--;
             
+        }
+
+        private void YTMT_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (progressBar1.Value < progressBar1.Maximum)
+                Application.Restart();
         }
     }
 

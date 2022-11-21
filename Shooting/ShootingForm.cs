@@ -50,13 +50,15 @@ namespace Shooting
         private Boolean bombItemActive = false;
         private Boolean gameover = false;
         private SoundPlayer GunSound = new SoundPlayer("gun.wav");
+        MainForm mainForm;
         //private SoundPlayer BgmSound = new SoundPlayer("bgm.wav");
         //private SoundPlayer ExplosionSound = new SoundPlayer("explosion.wav");
         
 
 
-        public ShootingForm()
+        public ShootingForm(MainForm form)
         {
+            mainForm = form;
             InitializeComponent();
             MXP.URL = @"bgm.wav";
             MXP.settings.playCount = 999;
@@ -152,7 +154,7 @@ namespace Shooting
                     if (playerHp <= 0 && gameover == false)
                     {
                         gameover = true;                        
-                        ResultForm resultform = new ResultForm(this,"Shooting");
+                        ResultForm resultform = new ResultForm(this,"Shooting",mainForm);
                         resultform.Show();
                         this.Close();
                     }
@@ -209,7 +211,7 @@ namespace Shooting
                         if (playerHp <= 0 && gameover == false)
                         {
                             gameover = true;                            
-                            ResultForm resultform = new ResultForm(this, "Shooting");
+                            ResultForm resultform = new ResultForm(this, "Shooting", mainForm);
                             resultform.Show();
                             this.Close();
                         }
@@ -264,7 +266,7 @@ namespace Shooting
                 if (playerHp <= 0 && gameover == false)
                 {
                     gameover = true;
-                    ResultForm resultform = new ResultForm(this, "Shooting");
+                    ResultForm resultform = new ResultForm(this, "Shooting", mainForm);
                     resultform.Show();
                     this.Close();
                 }
@@ -716,7 +718,13 @@ namespace Shooting
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Application.Exit();
+         //   Application.Restart();
+        }
+
+        private void ShootingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!gameover)
+            Application.Restart();
         }
     }
 }

@@ -115,7 +115,12 @@ namespace Shooting
 
         private void ReactionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainForm.Visible = true;
+            //mainForm.Visible = true;
+        }
+
+        private void ReactionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

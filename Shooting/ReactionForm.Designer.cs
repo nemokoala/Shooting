@@ -60,10 +60,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 349);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReactionForm";
             this.Text = "ReactionForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReactionForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReactionForm_FormClosed);
             this.Load += new System.EventHandler(this.ReactionForm_Load);
             this.ResumeLayout(false);
 
