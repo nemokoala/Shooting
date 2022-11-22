@@ -24,7 +24,7 @@ namespace Test
         Bitmap greenbitmap = Shooting.Properties.Resources.green;
         Bitmap purplebitmap = Shooting.Properties.Resources.purple;
         Bitmap yellowbitmap = Shooting.Properties.Resources.yellow;
-        
+
         private int BlockRange = 0;   //블록 범위
         private int number = 2;       //랜덤 함수의 범위        
         public int score = 0;        //점수
@@ -42,7 +42,9 @@ namespace Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.BackColor = Color.Gray;
+            
+
+            //this.BackColor = Color.Gray;
             int y = -10;
 
             // 초기 색상블럭 생성, 초기화
@@ -50,7 +52,7 @@ namespace Test
             for (int i = 0; i < 5; i++)
             {
                 BTN[i] = new PictureBox();
-
+                BTN[i].BackColor = Color.Transparent;
                 BTN[i].Location = new Point(280, y);
                 BTN[i].Size = new Size(100, 100);
                 BTN[i].SizeMode = PictureBoxSizeMode.StretchImage;
@@ -70,7 +72,6 @@ namespace Test
                 this.Controls.Add(BTN[i]);
             }
 
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //키보드 입력 시
@@ -89,7 +90,7 @@ namespace Test
                     else //키 입력 실수 시 1초동안 키입력 비활성화
                     {
                         DontRunEvent = true;
-                        this.BackColor = Color.DarkGray;
+                        this.BackgroundImage = Shooting.Properties.Resources.YTMT_BackGround2;
                         timer2.Enabled = true;
                     }
 
@@ -106,7 +107,7 @@ namespace Test
                     else //키 입력 실수 시 1초동안 키입력 비활성화
                     {
                         DontRunEvent = true;
-                        this.BackColor = Color.DarkGray;
+                        this.BackgroundImage = Shooting.Properties.Resources.YTMT_BackGround2;
                         timer2.Enabled = true;
                     }
                 }
@@ -174,6 +175,7 @@ namespace Test
                 new Point(400,516), new Point(259,516), new Point(259,375)
             };
             g.DrawLines(new Pen(Color.Black), pts);
+            g.Dispose();
         }
 
         private void timer2_Tick(object sender, EventArgs e) // 입력미스 시 1초동안 이벤트 비활성화
@@ -184,7 +186,7 @@ namespace Test
                 DontRunEvent = false;
                 timer2.Enabled = false;
                 DontRunEventTime = 0;
-                this.BackColor = Color.MediumSeaGreen;
+                this.BackgroundImage = Shooting.Properties.Resources.YTMY_BackGround;
             }
         }
 
@@ -196,7 +198,6 @@ namespace Test
                 timer1.Enabled = true;
                 timer3.Enabled = false;
                 DontRunEvent = false;
-                this.BackColor = Color.MediumSeaGreen;
                 
             }
             CountDown.Text = "" + Count;
@@ -208,6 +209,16 @@ namespace Test
         {
             if (progressBar1.Value < progressBar1.Maximum)
                 Application.Restart();
+        }
+
+        protected override CreateParams CreateParams //화면 깜빡임 방지
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
         }
     }
 

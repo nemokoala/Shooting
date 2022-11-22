@@ -307,5 +307,11 @@
   <ItemGroup>
     <None Include="Resources\GameOver.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YTMY_BackGround.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YTMT_BackGround2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
