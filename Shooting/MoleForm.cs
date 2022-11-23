@@ -225,9 +225,9 @@ namespace kuma
                     if (mole3 > 0)
                     {
                         pictureBox3.Image = Shooting.Properties.Resources.on;
-                        Delay(200);
+                        Delay(220);
                         pictureBox3.Image = Shooting.Properties.Resources.off;
-                        Delay(200);
+                        Delay(220);
                         mole3 -= 1;
                         c++;
                         label4.Text = "" + c;
@@ -235,9 +235,9 @@ namespace kuma
                     if (mole1 > 0)
                     {
                         pictureBox1.Image = Shooting.Properties.Resources.on; //두더지 온
-                        Delay(200);
+                        Delay(220);
                         pictureBox1.Image = Shooting.Properties.Resources.off; //두더지 오프
-                        Delay(200);
+                        Delay(220);
                         mole1 -= 1;
                         a++;
                         label2.Text = "" + a;
@@ -245,9 +245,9 @@ namespace kuma
                     if (mole2 > 0)
                     {
                         pictureBox2.Image = Shooting.Properties.Resources.on;
-                        Delay(200);
+                        Delay(220);
                         pictureBox2.Image = Shooting.Properties.Resources.off;
-                        Delay(200);
+                        Delay(220);
                         mole2 -= 1;
                         b++;
                         label3.Text = "" + b;
