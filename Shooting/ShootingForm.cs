@@ -34,7 +34,7 @@ namespace Shooting
         private int enemy2MaxHp = 100;
         private int enemy2Speed = 3;
         private int enemy2InsStage = 5;
-        private int enemy3InsStage = 3;
+        private int enemy3InsStage = 20;
         private int enemy3Speed = 1;
         private static int enemy3Num = 3;
         private int stoneInsStage = 10;

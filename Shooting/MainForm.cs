@@ -1,4 +1,5 @@
-﻿using MineSweeperFinal;
+﻿using kuma;
+using MineSweeperFinal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace Shooting
         private int jellyScore = 0;
         private int reactionScore = 0;
         private int ytmtScore = 0;
+        private int moleScore = 0;
         public static Boolean ShowMainForm = true;
         
         public MainForm()
@@ -29,25 +31,19 @@ namespace Shooting
         private void Refresh()
         {
             IniFile ini = new IniFile();
-            try
-            {
-                ini.Load("GameData.ini");
-            }
-            catch
-            {
-
-            }
+            try {ini.Load("GameData.ini");}catch{}
 
             shootingScore = ini["슈팅"]["점수"].ToInt();
             shootingStage = ini["슈팅"]["스테이지"].ToInt();
             jellyScore = ini["젤리"]["점수"].ToInt();
             reactionScore = ini["반응속도"]["점수"].ToInt();
             ytmtScore = ini["니편내편"]["점수"].ToInt();
-
+            moleScore = ini["두더지"]["점수"].ToInt();
             ShootingBtn.Text = "슈팅게임\r최대 점수: " + shootingScore + "\r최대 스테이지: " + shootingStage;
             ReactionBtn.Text = "반응속도 게임\r최고 반응속도: " + reactionScore + "ms";
             DinoBtn.Text = "공룡게임\r최대 점수: " + jellyScore;
             YTMTBtn.Text = "니편내편\r최대 점수: " + ytmtScore;
+            MoleBtn.Text = "두더지 찾기\r최대 점수: " + moleScore;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -89,6 +85,13 @@ namespace Shooting
         private void MainForm_MouseEnter(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void MoleBtn_Click(object sender, EventArgs e)
+        {
+            MoleForm moleForm = new MoleForm();
+            moleForm.Show();
+            this.Hide();
         }
     }
 }

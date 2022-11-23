@@ -33,6 +33,7 @@
             this.DinoBtn = new System.Windows.Forms.Button();
             this.MineBtn = new System.Windows.Forms.Button();
             this.YTMTBtn = new System.Windows.Forms.Button();
+            this.MoleBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ShootingBtn
@@ -95,11 +96,24 @@
             this.YTMTBtn.UseVisualStyleBackColor = true;
             this.YTMTBtn.Click += new System.EventHandler(this.YTMTBtn_Click);
             // 
+            // MoleBtn
+            // 
+            this.MoleBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.MoleBtn.Location = new System.Drawing.Point(345, 179);
+            this.MoleBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.MoleBtn.Name = "MoleBtn";
+            this.MoleBtn.Size = new System.Drawing.Size(123, 106);
+            this.MoleBtn.TabIndex = 0;
+            this.MoleBtn.Text = "두더지 찾기";
+            this.MoleBtn.UseVisualStyleBackColor = true;
+            this.MoleBtn.Click += new System.EventHandler(this.MoleBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 342);
+            this.Controls.Add(this.MoleBtn);
             this.Controls.Add(this.YTMTBtn);
             this.Controls.Add(this.MineBtn);
             this.Controls.Add(this.DinoBtn);
@@ -121,5 +135,6 @@
         private System.Windows.Forms.Button DinoBtn;
         private System.Windows.Forms.Button MineBtn;
         private System.Windows.Forms.Button YTMTBtn;
+        private System.Windows.Forms.Button MoleBtn;
     }
 }

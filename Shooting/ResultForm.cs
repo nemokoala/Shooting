@@ -1,4 +1,5 @@
-﻿using MineSweeperFinal;
+﻿using kuma;
+using MineSweeperFinal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace Shooting
         MainForm _MainForm;
         YTMT _YTMTForm;
         MineForm _MineForm;
+        MoleForm _MoleForm;
         int preScore = 0;
         int preStage = 1;
         Boolean btnClick = false;
@@ -37,6 +39,8 @@ namespace Shooting
                 _YTMTForm = (YTMT)form;
             if (gameName == "Mine")
                 _MineForm = (MineForm)form;
+            if (gameName == "Mole")
+                _MoleForm = (MoleForm)form;
             this.gameName = gameName;
             _MainForm = mainForm;
             InitializeComponent();            
@@ -149,6 +153,24 @@ namespace Shooting
 
                 ini.Save("GameData.ini");
                 UI2.Text = "Score: " + _YTMTForm.score + "   최고 점수: " + preScore;
+
+            }
+
+            if (gameName == "Mole")
+            {
+                this.Text = gameName;
+                UI2.Text = "Score : " + _MoleForm.score;
+                IniFile ini = new IniFile();
+                try { ini.Load("GameData.ini"); } catch { };
+                preScore = ini["두더지"]["점수"].ToInt();
+                if (_MoleForm.score > preScore)
+                {
+                    UI1.Text = "Game over! 최고 기록 달성!";
+                    ini["두더지"]["점수"] = _MoleForm.score;
+                }
+
+                ini.Save("GameData.ini");
+                UI2.Text = "Score: " + _MoleForm.score + "   최고 점수: " + preScore;
 
             }
 

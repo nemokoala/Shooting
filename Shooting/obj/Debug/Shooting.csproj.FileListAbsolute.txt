@@ -113,3 +113,4 @@ C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.csproj.GenerateResou
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileInputs.cache
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.pdb
+C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\kuma.MoleForm.resources
