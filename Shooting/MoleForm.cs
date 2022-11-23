@@ -31,7 +31,7 @@ namespace kuma
         bool st_cl = true;
 
         Boolean gameOver = false;
-
+        //test
         private void button1_Click(object sender, EventArgs e)
         {
            if (check == reply)
