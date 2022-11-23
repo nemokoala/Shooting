@@ -22,6 +22,7 @@ namespace Shooting
         MineForm _MineForm;
         int preScore = 0;
         int preStage = 1;
+        Boolean btnClick = false;
 
         private String gameName;
         public ResultForm(Form form, string gameName, MainForm mainForm)
@@ -43,6 +44,7 @@ namespace Shooting
 
         private void button1_Click(object sender, EventArgs e)
         {
+            btnClick = true;
             if (gameName == "Shooting")
             {
                 _ShootingForm = new ShootingForm(_MainForm);
@@ -66,6 +68,7 @@ namespace Shooting
 
         private void button2_Click(object sender, EventArgs e)
         {
+            btnClick = true;
             Application.Exit();
         }
 
@@ -158,7 +161,14 @@ namespace Shooting
 
         private void ButtonMain_Click(object sender, EventArgs e)
         {
+            btnClick = true;
             Application.Restart();
+        }
+
+        private void ResultForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (btnClick == false)
+                Application.Exit();
         }
     }
 }

@@ -313,5 +313,23 @@
   <ItemGroup>
     <None Include="Resources\YTMT_BackGround2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloud12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moleplayer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

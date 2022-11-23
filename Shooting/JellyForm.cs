@@ -78,11 +78,11 @@ namespace Shooting
                 Cloud2.Left -= enemySpeed - 3;
                 if (Cloud1.Left < 0 - Cloud1.Width)
                 {
-                    Cloud1.Left = ClientSize.Width + rnd.Next(0, 300);
+                    Cloud1.Left = ClientSize.Width + rnd.Next(0, 10);
                 }
                 if (Cloud2.Left < 0 - Cloud2.Width)
                 {
-                    Cloud2.Left = ClientSize.Width + rnd.Next(0, 300);
+                    Cloud2.Left = ClientSize.Width + rnd.Next(0, 10);
                 }
                 if (Enemy1.Left < 0 - Enemy1.Width)
                 {

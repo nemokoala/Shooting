@@ -41,9 +41,9 @@
             // UI1
             // 
             this.UI1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.UI1.Font = new System.Drawing.Font("HY견고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.UI1.Font = new System.Drawing.Font("HY견고딕", 25F, System.Drawing.FontStyle.Bold);
             this.UI1.ForeColor = System.Drawing.Color.Red;
-            this.UI1.Location = new System.Drawing.Point(5, 226);
+            this.UI1.Location = new System.Drawing.Point(17, 230);
             this.UI1.Name = "UI1";
             this.UI1.Size = new System.Drawing.Size(611, 51);
             this.UI1.TabIndex = 0;
@@ -53,19 +53,21 @@
             // UI2
             // 
             this.UI2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.UI2.Font = new System.Drawing.Font("HY견고딕", 30F, System.Drawing.FontStyle.Bold);
+            this.UI2.Font = new System.Drawing.Font("HY견고딕", 25F, System.Drawing.FontStyle.Bold);
             this.UI2.ForeColor = System.Drawing.Color.Transparent;
-            this.UI2.Location = new System.Drawing.Point(-2, 296);
+            this.UI2.Location = new System.Drawing.Point(10, 281);
             this.UI2.Name = "UI2";
-            this.UI2.Size = new System.Drawing.Size(618, 42);
+            this.UI2.Size = new System.Drawing.Size(618, 84);
             this.UI2.TabIndex = 0;
             this.UI2.Text = "Score : 000";
             this.UI2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ButtonMain
             // 
+            this.ButtonMain.BackgroundImage = global::Shooting.Properties.Resources.button;
+            this.ButtonMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonMain.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ButtonMain.Location = new System.Drawing.Point(210, 368);
+            this.ButtonMain.Location = new System.Drawing.Point(225, 368);
             this.ButtonMain.Name = "ButtonMain";
             this.ButtonMain.Size = new System.Drawing.Size(196, 59);
             this.ButtonMain.TabIndex = 1;
@@ -75,8 +77,10 @@
             // 
             // ButtonExit
             // 
+            this.ButtonExit.BackgroundImage = global::Shooting.Properties.Resources.button;
+            this.ButtonExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonExit.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ButtonExit.Location = new System.Drawing.Point(412, 368);
+            this.ButtonExit.Location = new System.Drawing.Point(442, 368);
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Size = new System.Drawing.Size(196, 59);
             this.ButtonExit.TabIndex = 1;
@@ -86,6 +90,8 @@
             // 
             // ButtonRetry
             // 
+            this.ButtonRetry.BackgroundImage = global::Shooting.Properties.Resources.button;
+            this.ButtonRetry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonRetry.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ButtonRetry.Location = new System.Drawing.Point(12, 368);
             this.ButtonRetry.Name = "ButtonRetry";
@@ -98,9 +104,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, -54);
+            this.pictureBox1.Location = new System.Drawing.Point(24, -50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(627, 361);
+            this.pictureBox1.Size = new System.Drawing.Size(604, 361);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -111,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(616, 452);
+            this.ClientSize = new System.Drawing.Size(650, 474);
             this.Controls.Add(this.ButtonExit);
             this.Controls.Add(this.ButtonRetry);
             this.Controls.Add(this.ButtonMain);
@@ -123,6 +129,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ResultForm_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
