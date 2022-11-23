@@ -58,6 +58,7 @@ namespace kuma
 
                 st_cl = true; //두더지 시작
                 timer1.Enabled = true; //두더지 움직임
+                button1.Visible = false;
                 a = 0;
                 b = 0;
                 c = 0;
@@ -79,6 +80,7 @@ namespace kuma
                 label2.Text = "" + a;
                 label3.Text = "" + b;
                 label4.Text = "" + c;
+                button1.Visible = false;
             }
         }
         /*
@@ -189,6 +191,7 @@ namespace kuma
         {
             if (st_cl) //타이머 온오프
             {
+                button1.Visible = false;
                 Delay(250);
                 choice = rand.Next(0, 3); //가장 많이 나올 두더지
                 //MessageBox.Show("" + choice);
@@ -250,9 +253,10 @@ namespace kuma
                     }
                 st_cl = false; // 두더지 스톱
                 timer1.Enabled = false; // 타이머 종료
-                }
-                    
                 
+                }
+                button1.Visible = true;
+
             }
 
 
