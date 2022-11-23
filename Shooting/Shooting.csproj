@@ -331,5 +331,11 @@
   <ItemGroup>
     <None Include="Resources\moleplayer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy3Hit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

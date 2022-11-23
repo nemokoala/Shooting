@@ -26,6 +26,7 @@ namespace Shooting
         private int[] enemy1ImageCount = new int[enemy1Amount];
         private int[] enemy2Hp = new int[enemy2Amount];
         private int[] enemy2ImageCount = new int[enemy2Amount];
+        private int[] enemy3Move = new int[enemy3Num];
         private int enemy1DefaultHp = 30;
         private int enemy1MaxHp = 30;
         private int enemy1Speed = 3;
@@ -33,6 +34,9 @@ namespace Shooting
         private int enemy2MaxHp = 100;
         private int enemy2Speed = 3;
         private int enemy2InsStage = 5;
+        private int enemy3InsStage = 3;
+        private int enemy3Speed = 1;
+        private static int enemy3Num = 3;
         private int stoneInsStage = 10;
         private int a = 0;
         private int explosionCount = 0;
@@ -96,7 +100,15 @@ namespace Shooting
             for (int i = 0; i < Enemy1Parent.Length; i++)
             {
                 Enemy1Parent[i].Top += enemy1Speed;
-
+                if (stage >= enemy3InsStage && i < enemy3Num) //적3 좌우 이동
+                {
+                    if (Enemy1Parent[i].Left <= 0)
+                        enemy3Move[i] = enemy3Speed;              
+                    if (Enemy1Parent[i].Left >= ClientSize.Width - Enemy1Parent[0].Width)
+                        enemy3Move[i] = -enemy3Speed;
+                    if (Enemy1Parent[i].Top > 0 - Enemy1Parent[i].Height)
+                        Enemy1Parent[i].Left += enemy3Move[i];
+                }
                 if (Enemy1Parent[i].Top > ClientSize.Height + 100) // 적이 맵 밑으로 나갈 경우
                 {
                     Enemy1Parent[i].Visible = false;
@@ -104,14 +116,23 @@ namespace Shooting
                     Enemy1Parent[i].Left = rnd.Next(0, ClientSize.Width - Enemy1Parent[0].Width);
                     enemy1Hp[i] = enemy1DefaultHp;
                     enemy1ImageCount[i] = 0;
-                    Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    if (stage < enemy3InsStage)
+                        Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    if (stage >= enemy3InsStage)
+                    {
+                        if (i < enemy3Num)
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy3;
+                        if (i >= enemy3Num)
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    }
+
                     Enemy1HpViewerParent[i].Maximum = enemy1DefaultHp;
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
                 }
                 if (Enemy1Parent[i].Top > 0 - Enemy1Parent[0].Height) Enemy1Parent[i].Visible = true;
                 else Enemy1Parent[i].Visible = false;
 
-
+                
             }
             //적 2 낙하
             if (stage >= enemy2InsStage)
@@ -159,19 +180,56 @@ namespace Shooting
                         this.Close();
                     }
                 }
-
-                if (enemy1ImageCount[i] == 18)
+                if (stage < enemy3InsStage)
                 {
-                    Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    if (enemy1ImageCount[i] == 18)
+                    {
+                        Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    }
+                    if (enemy1ImageCount[i] == 12)
+                    {
+                        Enemy1Parent[i].Image = Properties.Resources.EnemyHit;
+                    }
+                    if (enemy1ImageCount[i] == 7)
+                    {
+                        Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                    }                  
                 }
-                if (enemy1ImageCount[i] == 12)
+                
+                if (stage >= enemy3InsStage)
                 {
-                    Enemy1Parent[i].Image = Properties.Resources.EnemyHit;
+                    if (i < enemy3Num) //적3 이미지 변경
+                    {
+                        if (enemy1ImageCount[i] == 18)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy3;
+                        }
+                        if (enemy1ImageCount[i] == 12)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy3Hit;
+                        }
+                        if (enemy1ImageCount[i] == 7)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy3;
+                        }
+                    }
+                    if (i >= enemy3Num)
+                    {
+                        if (enemy1ImageCount[i] == 18)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                        }
+                        if (enemy1ImageCount[i] == 12)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.EnemyHit;
+                        }
+                        if (enemy1ImageCount[i] == 7)
+                        {
+                            Enemy1Parent[i].Image = Properties.Resources.Enemy;
+                        }
+                    }
                 }
-                if (enemy1ImageCount[i] == 7)
-                {
-                    Enemy1Parent[i].Image = Properties.Resources.Enemy;
-                }
+                
                 enemy1ImageCount[i]--;
 
                 //------------------ 적1 체력바 ---------------------------------
@@ -284,11 +342,27 @@ namespace Shooting
                             //MXP3.Ctlcontrols.stop();
                             //MXP3.Ctlcontrols.play();
                         } catch { }
-                        
+                        if (stage < enemy3InsStage)
                         enemy1Hp[j] -= bulletDamage;
+                        if (stage >= enemy3InsStage) //적3 데미지 반감
+                        {
+                            if (j < enemy3Num)
+                            enemy1Hp[j] -= (int)(bulletDamage / 2);
+                            if (j >= enemy3Num)
+                            enemy1Hp[j] -= bulletDamage;
+                        }
+                            
                         BulletParent[i].Top = -100;
                         BulletParent[i].Left = -100;
-                        Enemy1Parent[j].Image = Properties.Resources.EnemyHit;
+                        if (stage < enemy3InsStage)
+                            Enemy1Parent[j].Image = Properties.Resources.EnemyHit;
+                        if (stage >= enemy3InsStage)
+                        {
+                            if (j < enemy3Num)
+                                Enemy1Parent[j].Image = Properties.Resources.Enemy3Hit;
+                            if (j >= enemy3Num)
+                                Enemy1Parent[j].Image = Properties.Resources.EnemyHit;
+                        }
                         enemy1ImageCount[j] = 20;
                         //Enemy1HpViewerParent[i].Value = enemy1Hp[i] + h;
                         Enemy1HpViewerParent[j].Top = Enemy1Parent[j].Top - Enemy1HpViewerParent[j].Height - 5;
@@ -516,6 +590,7 @@ namespace Shooting
                 enemy2DefaultHp = enemy2MaxHp + stage * 25;
                 if (stage % 4 == 0) enemy1Speed++;
                 if (stage > 5 && stage % 6 == 0) enemy2Speed++;
+                if (stage >= enemy3InsStage && stage % 3 == 0) enemy3Speed++;
                 if (stage == 5)
                 {
                     for (int i = 0; i < Enemy2Parent.Length; i++)
@@ -562,6 +637,18 @@ namespace Shooting
                 }
             }
             
+            if (stage == enemy3InsStage && enemy3Move[0] == 0)
+            {
+                for (int i = 0; i < enemy3Num; i++)
+                {
+                    Enemy1Parent[i].Image = Properties.Resources.Enemy3;
+                    int r = rnd.Next(0, 5);
+                    if (r<2)
+                        enemy3Move[i] = -enemy3Speed;
+                    if (r >= 2)
+                        enemy3Move[i] = enemy3Speed;
+                }
+            }
         }
 
         //------------------------------ 타이머 이벤트 끝 -------------------------------------
@@ -595,7 +682,16 @@ namespace Shooting
             Enemy1Parent[j].Left = rnd.Next(0, ClientSize.Width - Enemy1Parent[0].Width);
             enemy1Hp[j] = enemy1DefaultHp;
             enemy1ImageCount[j] = 0;
-            Enemy1Parent[j].Image = Properties.Resources.Enemy;
+
+            if (stage < enemy3InsStage)
+                Enemy1Parent[j].Image = Properties.Resources.Enemy;
+            if (stage >= enemy3InsStage)
+            {
+                if (j < enemy3Num)
+                    Enemy1Parent[j].Image = Properties.Resources.Enemy3;
+                if (j >= enemy3Num)
+                    Enemy1Parent[j].Image = Properties.Resources.Enemy;
+            }
             score += 10+stage;
             UIText.Text = "Score : " + score + "\nStage : " + stage + "\n무기레벨 : " + weaponLevel + "\n체력 : " + playerHp + "/" + playerMaxHp;
 
