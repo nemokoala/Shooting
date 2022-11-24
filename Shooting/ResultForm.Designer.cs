@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultForm));
             this.UI1 = new System.Windows.Forms.Label();
             this.UI2 = new System.Windows.Forms.Label();
             this.ButtonExit = new System.Windows.Forms.Button();
@@ -40,10 +39,10 @@
             // 
             // UI1
             // 
-            this.UI1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.UI1.BackColor = System.Drawing.Color.Transparent;
             this.UI1.Font = new System.Drawing.Font("HY견고딕", 25F, System.Drawing.FontStyle.Bold);
             this.UI1.ForeColor = System.Drawing.Color.Red;
-            this.UI1.Location = new System.Drawing.Point(27, 402);
+            this.UI1.Location = new System.Drawing.Point(27, 365);
             this.UI1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.UI1.Name = "UI1";
             this.UI1.Size = new System.Drawing.Size(960, 89);
@@ -53,10 +52,10 @@
             // 
             // UI2
             // 
-            this.UI2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.UI2.BackColor = System.Drawing.Color.Transparent;
             this.UI2.Font = new System.Drawing.Font("HY견고딕", 25F, System.Drawing.FontStyle.Bold);
             this.UI2.ForeColor = System.Drawing.Color.Transparent;
-            this.UI2.Location = new System.Drawing.Point(16, 492);
+            this.UI2.Location = new System.Drawing.Point(16, 454);
             this.UI2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.UI2.Name = "UI2";
             this.UI2.Size = new System.Drawing.Size(971, 147);
@@ -108,11 +107,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(38, -88);
+            this.pictureBox1.Image = global::Shooting.Properties.Resources.GameOver;
+            this.pictureBox1.Location = new System.Drawing.Point(113, -41);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(949, 632);
+            this.pictureBox1.Size = new System.Drawing.Size(794, 680);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
