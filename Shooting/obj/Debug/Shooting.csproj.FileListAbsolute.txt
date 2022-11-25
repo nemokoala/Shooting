@@ -114,3 +114,4 @@ C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.csproj.CoreCompileIn
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.pdb
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\kuma.MoleForm.resources
+C:\CsProject\Shooting\obj\Debug\kuma.MoleForm.resources
