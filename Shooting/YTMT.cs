@@ -9,14 +9,18 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Timers;
 using System.Security.Cryptography.X509Certificates;
 using Shooting;
+using System.Windows.Media;
+using System.Drawing.Text;
+using Pen = System.Drawing.Pen;
+using Color = System.Drawing.Color;
 
 namespace Test
 {
     public partial class YTMT : Form
     {
+       
         /* 초기 블록 이미지 설정 */
         Bitmap redbitmap = Shooting.Properties.Resources.red;
         Bitmap bluebitmap = Shooting.Properties.Resources.blue;
@@ -42,8 +46,13 @@ namespace Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            BGM.URL = @"YTMT_BGM.WAV";
+            BGM.settings.volume = 5;
+            HITSOUND.settings.volume = 10;
             
-
+            
+            
+            
             //this.BackColor = Color.Gray;
             int y = -10;
 
@@ -74,6 +83,7 @@ namespace Test
 
         }
 
+
         private void Form1_KeyDown(object sender, KeyEventArgs e) //키보드 입력 시
         {
             if (DontRunEvent == false) //키입력을 받을지 결정
@@ -85,7 +95,7 @@ namespace Test
                         Makeblock(); //블럭 처리
                         score++; //점수 증가
                         label1.Text = "SCORE: " + score;
-
+                        HITSOUND.URL = @"HITSOUND.wav";
                     }
                     else //키 입력 실수 시 1초동안 키입력 비활성화
                     {
@@ -93,7 +103,7 @@ namespace Test
                         this.BackgroundImage = Shooting.Properties.Resources.YTMT_BackGround2;
                         timer2.Enabled = true;
                     }
-
+                    
                 }
                 if (e.KeyCode == Keys.Right) // '->- 입력 시
                 {
@@ -102,7 +112,7 @@ namespace Test
                         Makeblock(); //블럭 처리
                         score++;  //점수 증가
                         label1.Text = "SCORE: " + score;
-
+                        HITSOUND.URL = @"HITSOUND.wav";
                     }
                     else //키 입력 실수 시 1초동안 키입력 비활성화
                     {
@@ -220,7 +230,9 @@ namespace Test
                 return cp;
             }
         }
-    }
+        
 
+
+    }
 
 }
