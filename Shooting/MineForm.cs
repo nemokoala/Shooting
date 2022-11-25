@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Test;
 
 namespace MineSweeperFinal
 {
@@ -204,6 +205,10 @@ namespace MineSweeperFinal
             Recursive(x - 1, y);
             Recursive(x, y + 1);
             Recursive(x, y - 1);
+            Recursive(x+1, y+1);
+            Recursive(x+1, y-1);
+            Recursive(x-1, y-1);
+            Recursive(x-1, y+1);
             return;
         }
 
@@ -303,7 +308,8 @@ namespace MineSweeperFinal
         {
             GameInit game = new GameInit();
             game.Show();
-            this.Hide();
+            this.Close();
+
         }
     }
 }
