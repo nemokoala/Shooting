@@ -19,6 +19,7 @@ namespace kuma
         int scoreup = 10; //스코어 업
         public int highscore = 0; //최고점수
         int choice = 2; //가장 많이 나올 두더지 초이스
+        int choice2 = 0;
         int reply = 0; //답
         int check = 0; //위치
         int preScore = 0;
@@ -34,10 +35,12 @@ namespace kuma
         //test
         private void button1_Click(object sender, EventArgs e)
         {
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
             if (check == reply)
             {
                 MessageBox.Show("정답~!");
-
 
                 score += scoreup;
                 max_appear += 3;//난이도 증가
@@ -82,6 +85,9 @@ namespace kuma
                 label4.Text = "" + c;
                 button1.Visible = false;
             }
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
         }
         /*
         private void start_Click(object sender, EventArgs e) //제동장치
@@ -116,7 +122,7 @@ namespace kuma
             //highscore = Shooting.Properties.Settings.Default.최고점수;
             highscorebar.Text = "HighScore : " + highscore; //최고점수
 
-            if (health <= 0)
+            if (health <= 0) //체력 0이 되면
             {
                 timer1.Enabled = false;
                 timer2.Enabled = false;
@@ -192,6 +198,7 @@ namespace kuma
             
             if (st_cl) //타이머 온오프
             {
+
                 button1.Visible = false;
                 Delay(150);
                 choice = rand.Next(0, 3); //가장 많이 나올 두더지
@@ -202,7 +209,6 @@ namespace kuma
                     mole1 = max_appear;
                     mole2 = rand.Next(ran_appear, ran_appear + 1);
                     mole3 = rand.Next(ran_appear, ran_appear + 1);
-                    //label6.Text = "" + mole1 + "";
                 }
                 if (choice == 1)
                 {
@@ -220,39 +226,66 @@ namespace kuma
                 }
 
 
-                for (int i = 0; i <= max_appear; i++)
+                label2.Text = "" + mole1;
+                label3.Text = "" + mole2;
+                label4.Text = "" + mole3;
+
+                while (mole1!=0||mole2!=0||mole3!=0)
                 {
-                    if (mole3 > 0)
+                    choice2 = rand.Next(0, 3); //턴마다 두더지 순서 정하기
+                    if (choice2 == 0)
                     {
-                        pictureBox3.Image = Shooting.Properties.Resources.on;
-                        Delay(220);
-                        pictureBox3.Image = Shooting.Properties.Resources.off;
-                        Delay(220);
-                        mole3 -= 1;
-                        c++;
-                        label4.Text = "" + c;
+                        if(choice == 1 && choice == 2) //선택된 두더지가 아니고
+                        {
+                            if (mole1 == 2) //this 두더지가 2번 남았다면 한턴 쉬기
+                                break;
+                        }
+                        if (mole1 > 0)
+                        {
+                            pictureBox1.Image = Shooting.Properties.Resources.on; //두더지 온
+                            Delay(220);
+                            pictureBox1.Image = Shooting.Properties.Resources.off; //두더지 오프
+                            Delay(220);
+                            mole1 -= 1;
+                            a++;
+                        }
                     }
-                    if (mole1 > 0)
+                    else if (choice2 == 1)
                     {
-                        pictureBox1.Image = Shooting.Properties.Resources.on; //두더지 온
-                        Delay(220);
-                        pictureBox1.Image = Shooting.Properties.Resources.off; //두더지 오프
-                        Delay(220);
-                        mole1 -= 1;
-                        a++;
-                        label2.Text = "" + a;
+                        if (choice == 0 && choice == 2)
+                        {
+                            if (mole2 == 2)
+                                break;
+                        }
+                        if (mole2 > 0)
+                        {
+                            pictureBox2.Image = Shooting.Properties.Resources.on;
+                            Delay(220);
+                            pictureBox2.Image = Shooting.Properties.Resources.off;
+                            Delay(220);
+                            mole2 -= 1;
+                            b++;
+                        }
+                        
                     }
-                    if (mole2 > 0)
+                    else if (choice2 == 2)
                     {
-                        pictureBox2.Image = Shooting.Properties.Resources.on;
-                        Delay(220);
-                        pictureBox2.Image = Shooting.Properties.Resources.off;
-                        Delay(220);
-                        mole2 -= 1;
-                        b++;
-                        label3.Text = "" + b;
+                        if (choice == 0 && choice == 1)
+                        {
+                            if (mole3 == 3)
+                                break;
+                        }
+                        if (mole3 > 0)
+                        {
+                            pictureBox3.Image = Shooting.Properties.Resources.on;
+                            Delay(220);
+                            pictureBox3.Image = Shooting.Properties.Resources.off;
+                            Delay(220);
+                            mole3 -= 1;
+                            c++;
+                        }
                     }
-                    
+
                     st_cl = false; // 두더지 스톱
                     timer1.Enabled = false; // 타이머 종료
 
