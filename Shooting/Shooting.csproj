@@ -51,6 +51,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -127,6 +128,9 @@
     <Compile Include="YTMTEND.Designer.cs">
       <DependentUpon>YTMTEND.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GameInit.resx">
+      <DependentUpon>GameInit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MoleForm.resx">
       <DependentUpon>MoleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,9 +318,6 @@
     <None Include="Resources\GameOver.JPG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GameOver.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\YTMY_BackGround.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -345,6 +346,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Enemy3Hit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameOverN1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameOverN.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GameOver.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

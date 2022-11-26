@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YTMT));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -43,12 +44,16 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.CountDown = new System.Windows.Forms.Label();
+            this.BGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.HITSOUND = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HITSOUND)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -182,6 +187,26 @@
             this.CountDown.TabIndex = 14;
             this.CountDown.Text = "3";
             // 
+            // BGM
+            // 
+            this.BGM.Enabled = true;
+            this.BGM.Location = new System.Drawing.Point(12, 25);
+            this.BGM.Name = "BGM";
+            this.BGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("BGM.OcxState")));
+            this.BGM.Size = new System.Drawing.Size(75, 23);
+            this.BGM.TabIndex = 15;
+            this.BGM.Visible = false;
+            // 
+            // HITSOUND
+            // 
+            this.HITSOUND.Enabled = true;
+            this.HITSOUND.Location = new System.Drawing.Point(230, 24);
+            this.HITSOUND.Name = "HITSOUND";
+            this.HITSOUND.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("HITSOUND.OcxState")));
+            this.HITSOUND.Size = new System.Drawing.Size(75, 23);
+            this.HITSOUND.TabIndex = 16;
+            this.HITSOUND.Visible = false;
+            // 
             // YTMT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -190,6 +215,8 @@
             this.BackgroundImage = global::Shooting.Properties.Resources.YTMY_BackGround;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 561);
+            this.Controls.Add(this.HITSOUND);
+            this.Controls.Add(this.BGM);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
@@ -201,6 +228,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CountDown);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(700, 600);
+            this.MinimumSize = new System.Drawing.Size(700, 600);
             this.Name = "YTMT";
             this.Text = "니편내편";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.YTMT_FormClosed);
@@ -213,6 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HITSOUND)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +265,8 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Label CountDown;
+        private AxWMPLib.AxWindowsMediaPlayer BGM;
+        private AxWMPLib.AxWindowsMediaPlayer HITSOUND;
     }
 }
 
