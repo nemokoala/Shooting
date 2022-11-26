@@ -18,9 +18,12 @@ namespace Shooting
         public int Score = 0;
         private int enemySpeed = 12;
         private int playerDefaultTop = 0;
+        private Boolean gameOver = false;
         Random rnd = new Random();
-        public JellyForm()
+        MainForm mainForm;
+        public JellyForm(MainForm form)
         {
+            mainForm = form;
             InitializeComponent();
         }
 
@@ -75,11 +78,11 @@ namespace Shooting
                 Cloud2.Left -= enemySpeed - 3;
                 if (Cloud1.Left < 0 - Cloud1.Width)
                 {
-                    Cloud1.Left = ClientSize.Width + rnd.Next(0, 300);
+                    Cloud1.Left = ClientSize.Width + rnd.Next(0, 10);
                 }
                 if (Cloud2.Left < 0 - Cloud2.Width)
                 {
-                    Cloud2.Left = ClientSize.Width + rnd.Next(0, 300);
+                    Cloud2.Left = ClientSize.Width + rnd.Next(0, 10);
                 }
                 if (Enemy1.Left < 0 - Enemy1.Width)
                 {
@@ -175,10 +178,21 @@ namespace Shooting
 
         private void GameOver()
         {
-            ResultForm resultform = new ResultForm(this, "Jelly");
+            gameOver = true;
+            ResultForm resultform = new ResultForm(this, "Jelly",mainForm);
             resultform.Show();
             this.Close();
         }
-        
+
+        private void JellyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //mainForm.Visible = true;
+        }
+
+        private void JellyForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!gameOver)
+            Application.Restart();
+        }
     }
 }

@@ -28,97 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.ShootingBtn = new System.Windows.Forms.Button();
+            this.ReactionBtn = new System.Windows.Forms.Button();
+            this.DinoBtn = new System.Windows.Forms.Button();
+            this.MineBtn = new System.Windows.Forms.Button();
+            this.YTMTBtn = new System.Windows.Forms.Button();
+            this.MoleBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // ShootingBtn
             // 
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.button1.Location = new System.Drawing.Point(34, 49);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 106);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "슈팅 게임";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ShootingBtn.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.ShootingBtn.Location = new System.Drawing.Point(34, 49);
+            this.ShootingBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ShootingBtn.Name = "ShootingBtn";
+            this.ShootingBtn.Size = new System.Drawing.Size(123, 106);
+            this.ShootingBtn.TabIndex = 0;
+            this.ShootingBtn.Text = "슈팅 게임";
+            this.ShootingBtn.UseVisualStyleBackColor = true;
+            this.ShootingBtn.Click += new System.EventHandler(this.ShootingBtn_Click);
             // 
-            // button2
+            // ReactionBtn
             // 
-            this.button2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(195, 49);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 106);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "반응속도 테스트";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ReactionBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ReactionBtn.Location = new System.Drawing.Point(195, 49);
+            this.ReactionBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ReactionBtn.Name = "ReactionBtn";
+            this.ReactionBtn.Size = new System.Drawing.Size(123, 106);
+            this.ReactionBtn.TabIndex = 0;
+            this.ReactionBtn.Text = "반응속도 테스트";
+            this.ReactionBtn.UseVisualStyleBackColor = true;
+            this.ReactionBtn.Click += new System.EventHandler(this.ReactionBtn_Click);
             // 
-            // button3
+            // DinoBtn
             // 
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(345, 49);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 106);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "공룡 점프";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.DinoBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.DinoBtn.Location = new System.Drawing.Point(345, 49);
+            this.DinoBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DinoBtn.Name = "DinoBtn";
+            this.DinoBtn.Size = new System.Drawing.Size(123, 106);
+            this.DinoBtn.TabIndex = 0;
+            this.DinoBtn.Text = "공룡 점프";
+            this.DinoBtn.UseVisualStyleBackColor = true;
+            this.DinoBtn.Click += new System.EventHandler(this.DinoBtn_Click);
             // 
-            // button4
+            // MineBtn
             // 
-            this.button4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(34, 179);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 106);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "지뢰 찾기";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.MineBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.MineBtn.Location = new System.Drawing.Point(34, 179);
+            this.MineBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.MineBtn.Name = "MineBtn";
+            this.MineBtn.Size = new System.Drawing.Size(123, 106);
+            this.MineBtn.TabIndex = 0;
+            this.MineBtn.Text = "지뢰 찾기";
+            this.MineBtn.UseVisualStyleBackColor = true;
+            this.MineBtn.Click += new System.EventHandler(this.MineBtn_Click);
             // 
-            // button5
+            // YTMTBtn
             // 
-            this.button5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button5.Location = new System.Drawing.Point(195, 179);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 106);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "지뢰 찾기";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.YTMTBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.YTMTBtn.Location = new System.Drawing.Point(195, 179);
+            this.YTMTBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.YTMTBtn.Name = "YTMTBtn";
+            this.YTMTBtn.Size = new System.Drawing.Size(123, 106);
+            this.YTMTBtn.TabIndex = 0;
+            this.YTMTBtn.Text = "니편 내편";
+            this.YTMTBtn.UseVisualStyleBackColor = true;
+            this.YTMTBtn.Click += new System.EventHandler(this.YTMTBtn_Click);
+            // 
+            // MoleBtn
+            // 
+            this.MoleBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.MoleBtn.Location = new System.Drawing.Point(345, 179);
+            this.MoleBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.MoleBtn.Name = "MoleBtn";
+            this.MoleBtn.Size = new System.Drawing.Size(123, 106);
+            this.MoleBtn.TabIndex = 0;
+            this.MoleBtn.Text = "두더지 찾기";
+            this.MoleBtn.UseVisualStyleBackColor = true;
+            this.MoleBtn.Click += new System.EventHandler(this.MoleBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 307);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(515, 342);
+            this.Controls.Add(this.MoleBtn);
+            this.Controls.Add(this.YTMTBtn);
+            this.Controls.Add(this.MineBtn);
+            this.Controls.Add(this.DinoBtn);
+            this.Controls.Add(this.ReactionBtn);
+            this.Controls.Add(this.ShootingBtn);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MouseEnter += new System.EventHandler(this.MainForm_MouseEnter);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ShootingBtn;
+        private System.Windows.Forms.Button ReactionBtn;
+        private System.Windows.Forms.Button DinoBtn;
+        private System.Windows.Forms.Button MineBtn;
+        private System.Windows.Forms.Button YTMTBtn;
+        private System.Windows.Forms.Button MoleBtn;
     }
 }
