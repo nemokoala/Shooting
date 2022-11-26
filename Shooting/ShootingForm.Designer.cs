@@ -64,13 +64,12 @@
             // 
             // UIText
             // 
-            this.UIText.AutoSize = true;
             this.UIText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UIText.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.UIText.ForeColor = System.Drawing.Color.Navy;
-            this.UIText.Location = new System.Drawing.Point(-4, -1);
+            this.UIText.Location = new System.Drawing.Point(-5, -1);
             this.UIText.Name = "UIText";
-            this.UIText.Size = new System.Drawing.Size(99, 30);
+            this.UIText.Size = new System.Drawing.Size(333, 60);
             this.UIText.TabIndex = 1;
             this.UIText.Text = "Score : 0\r\n";
             // 
@@ -221,7 +220,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

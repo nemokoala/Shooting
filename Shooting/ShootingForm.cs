@@ -75,8 +75,7 @@ namespace Shooting
             MXP2.Visible = false;
             MXP2.settings.volume = 200;
 
-            MXP3.URL = @"hit.wav";
-            //MXP2.settings.playCount = 999;
+            MXP3.URL = @"stageup.wav";
             MXP3.Ctlcontrols.stop();
             MXP3.Visible = false;
             MXP3.settings.volume = 100;
@@ -337,11 +336,7 @@ namespace Shooting
                 for (int j = 0; j < Enemy1Parent.Length; j++)
                 {
                     if (BulletParent[i].Bounds.IntersectsWith(Enemy1Parent[j].Bounds))
-                    {
-                        try {
-                            //MXP3.Ctlcontrols.stop();
-                            //MXP3.Ctlcontrols.play();
-                        } catch { }
+                    {                       
                         if (stage < enemy3InsStage)
                         enemy1Hp[j] -= bulletDamage;
                         if (stage >= enemy3InsStage) //적3 데미지 반감
@@ -585,6 +580,8 @@ namespace Shooting
             if (bulletDelayCount % 700 == 0) 
             {
                 stage = (bulletDelayCount / 700) + 1; //700틱마다 스테이지 증가
+                try{ MXP3.Ctlcontrols.play();} catch { }
+                UIText.Text = "Stage UP!!!";
                 UIText.Text = "Score : " + score + "    Stage : " + stage + "\n무기레벨 : " + weaponLevel + "    체력 : " + playerHp + "/" + playerMaxHp;
                 enemy1DefaultHp = enemy1MaxHp + stage * 15;
                 enemy2DefaultHp = enemy2MaxHp + stage * 25;
