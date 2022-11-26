@@ -43,6 +43,7 @@
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
             this.Explosion = new System.Windows.Forms.PictureBox();
+            this.StageUp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MXP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP3)).BeginInit();
@@ -64,13 +65,12 @@
             // 
             // UIText
             // 
-            this.UIText.AutoSize = true;
             this.UIText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UIText.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.UIText.ForeColor = System.Drawing.Color.Navy;
-            this.UIText.Location = new System.Drawing.Point(-4, -1);
+            this.UIText.Location = new System.Drawing.Point(-5, -1);
             this.UIText.Name = "UIText";
-            this.UIText.Size = new System.Drawing.Size(99, 30);
+            this.UIText.Size = new System.Drawing.Size(333, 60);
             this.UIText.TabIndex = 1;
             this.UIText.Text = "Score : 0\r\n";
             // 
@@ -183,11 +183,24 @@
             this.Explosion.TabIndex = 4;
             this.Explosion.TabStop = false;
             // 
+            // StageUp
+            // 
+            this.StageUp.BackColor = System.Drawing.Color.Transparent;
+            this.StageUp.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StageUp.ForeColor = System.Drawing.Color.Firebrick;
+            this.StageUp.Location = new System.Drawing.Point(100, 165);
+            this.StageUp.Name = "StageUp";
+            this.StageUp.Size = new System.Drawing.Size(117, 38);
+            this.StageUp.TabIndex = 7;
+            this.StageUp.Text = "Stage UP!";
+            this.StageUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ShootingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 567);
+            this.Controls.Add(this.StageUp);
             this.Controls.Add(this.MXP3);
             this.Controls.Add(this.MXP2);
             this.Controls.Add(this.MXP);
@@ -221,7 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -240,6 +252,7 @@
         private AxWMPLib.AxWindowsMediaPlayer MXP;
         private AxWMPLib.AxWindowsMediaPlayer MXP2;
         private AxWMPLib.AxWindowsMediaPlayer MXP3;
+        private System.Windows.Forms.Label StageUp;
     }
 }
 

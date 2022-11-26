@@ -115,6 +115,7 @@ C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.exe
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\Shooting.pdb
 C:\CsProject\RecentGit\Shooting\Shooting\obj\Debug\kuma.MoleForm.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\user\Desktop\갈매기\Shooting\bin\Debug\Shooting.exe.config
 C:\Users\user\Desktop\갈매기\Shooting\bin\Debug\Shooting.exe
 C:\Users\user\Desktop\갈매기\Shooting\bin\Debug\Shooting.pdb
@@ -143,3 +144,6 @@ C:\Users\user\Desktop\갈매기\Shooting\obj\Debug\Shooting.pdb
 C:\Users\kimchi\Desktop\윈프프로젝트\Shooting\obj\Debug\kuma.MoleForm.resources
 C:\Users\kimchi\Desktop\윈프프로젝트\Shooting\obj\Debug\MineSweeperFinal.GameInit.resources
 >>>>>>> junyoung
+=======
+C:\CsProject\Shooting\obj\Debug\kuma.MoleForm.resources
+>>>>>>> JY

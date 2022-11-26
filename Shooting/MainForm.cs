@@ -93,5 +93,54 @@ namespace Shooting
             moleForm.Show();
             this.Hide();
         }
+
+        private void ShootingBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<슈팅 게임>\n쏟아져 나오는 적들을 제거하면서 오래동안 살아남으세요!" +
+                "\n\n<조작법>\n키보드 방향키 ← : 왼쪽 이동\n키보드 방향키 → : 오른쪽 이동" +
+                "\n\n<게임 설명>\n플레이어를 좌우로 움직여서 적들을 피하거나 총알로 적을 죽이세요.\n" +
+                "점수는 적을 처치하면 얻을 수 있습니다. 이때 적을 처치하면 일정확률로 아이템이 드랍됩니다.\n" +
+                "아이템을 꾸준히 먹어서 후반에도 잘 버텨보세요.";
+        }
+
+        private void MoleBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<두더지 게임>\n가장 많이 고개를 내민 두더지를 찾아주세요!" +
+                "\n\n<조작법>\n플레이어를 움직여 두더지를 선택\n" +
+                "키보드 방향키 ← : 왼쪽 이동\n키보드 방향키 → : 오른쪽 이동" +
+                "\n\n<게임 설명>\n 라운드가 시작되면 두더지가 랜덤으로 고개를 내밉니다.\n" +
+                "가장 고개를 많이 내민 두더지를 기억해 플레이어를 이동시켜 두더지를 찾아내면 됩니다.";
+        }
+
+        private void ReactionBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<반응속도 테스트 게임>\n화면색이 바뀌면 빠르게 클릭을 하여 반응속도를 테스트 해보세요!" +
+                "\n\n<게임 방법>\n화면이 회색에서 하늘색으로 바뀌면 빠르게 클릭하세요.\n미리 클릭하면 무효입니다.\n" +
+                "반응속도 수치가 낮을수록 좋은겁니다. (평균 200ms)";
+        }
+
+        private void MineBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<지뢰찾기 게임>\n화면색이 바뀌면 빠르게 클릭을 하여 반응속도를 테스트 해보세요!" +
+                "\n\n<게임 방법>\n화면이 회색에서 하늘색으로 바뀌면 빠르게 클릭하세요.\n미리 클릭하면 무효입니다.\n" +
+                "반응속도 수치가 낮을수록 좋은겁니다. (평균 200ms)";
+        }
+
+        private void DinoBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<공룡 게임>\n뛰어오는 공룡을 피하세요!" +
+                "\n\n<조작법>\n" +
+                "키보드 방향키 ↑ : 점프\n키보드 방향키 ↓ : 숙이기" +
+                "\n\n<게임 방법>\n화면 우측에서 나오는 공룡을 점프나 숙이기로 피하세요.\n" +
+                "시간이 지날수록 공룡의 속도가 빨라집니다.";
+        }
+
+        private void YTMTBtn_MouseHover(object sender, EventArgs e)
+        {
+            UITEXT.Text = "<니편내편 게임>\n알맞은 방향으로 공룡을 보내세요!" +
+                "\n\n<조작법>\n현재 공룡을\n" +
+                "키보드 방향키 ← : 왼쪽 이동\n키보드 방향키 → : 오른쪽 이동" +
+                "\n\n<게임 방법>\n현재 공룡을 왼쪽 또는 오른쪽으로 보내주세요.";
+        }
     }
 }

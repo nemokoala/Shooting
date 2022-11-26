@@ -356,5 +356,38 @@
   <ItemGroup>
     <None Include="Resources\GameOver.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JellyBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NCloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NCloud1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NCloud2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\메인배경.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\슈팅버튼.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\반응속도버튼.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\공룡버튼.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\지뢰찾기버튼.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\니편내편버튼.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\두더지버튼.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
