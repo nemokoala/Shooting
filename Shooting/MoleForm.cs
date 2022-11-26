@@ -23,8 +23,8 @@ namespace kuma
         int reply = 0; //답
         int check = 0; //위치
         int preScore = 0;
-        int max_appear = 6; //최대
-        int ran_appear = 4; //최대보다 적은
+        int max_appear = 4; //최대
+        int ran_appear = 2; //최대보다 적은
         int mole1, mole2, mole3; //두더지 123
         Random rand = new Random();
 

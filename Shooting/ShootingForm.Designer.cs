@@ -31,22 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShootingForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.UIText = new System.Windows.Forms.Label();
             this.MXP = new AxWMPLib.AxWindowsMediaPlayer();
             this.MXP2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.MXP3 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.StageUp = new System.Windows.Forms.Label();
+            this.Explosion = new System.Windows.Forms.PictureBox();
             this.Stone = new System.Windows.Forms.PictureBox();
             this.BombItem = new System.Windows.Forms.PictureBox();
             this.LifeItem = new System.Windows.Forms.PictureBox();
             this.PowerItem = new System.Windows.Forms.PictureBox();
+            this.UIText = new System.Windows.Forms.Label();
             this.Player = new System.Windows.Forms.PictureBox();
             this.Background2 = new System.Windows.Forms.PictureBox();
             this.Background1 = new System.Windows.Forms.PictureBox();
-            this.Explosion = new System.Windows.Forms.PictureBox();
-            this.StageUp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MXP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).BeginInit();
@@ -54,7 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -62,17 +62,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // UIText
-            // 
-            this.UIText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.UIText.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.UIText.ForeColor = System.Drawing.Color.Navy;
-            this.UIText.Location = new System.Drawing.Point(-5, -1);
-            this.UIText.Name = "UIText";
-            this.UIText.Size = new System.Drawing.Size(333, 60);
-            this.UIText.TabIndex = 1;
-            this.UIText.Text = "Score : 0\r\n";
             // 
             // MXP
             // 
@@ -100,6 +89,28 @@
             this.MXP3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP3.OcxState")));
             this.MXP3.Size = new System.Drawing.Size(75, 23);
             this.MXP3.TabIndex = 6;
+            // 
+            // StageUp
+            // 
+            this.StageUp.BackColor = System.Drawing.Color.Gainsboro;
+            this.StageUp.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StageUp.ForeColor = System.Drawing.Color.Firebrick;
+            this.StageUp.Location = new System.Drawing.Point(100, 165);
+            this.StageUp.Name = "StageUp";
+            this.StageUp.Size = new System.Drawing.Size(117, 38);
+            this.StageUp.TabIndex = 7;
+            this.StageUp.Text = "Stage UP!";
+            this.StageUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Explosion
+            // 
+            this.Explosion.Image = global::Shooting.Properties.Resources.NExplosion;
+            this.Explosion.Location = new System.Drawing.Point(117, 236);
+            this.Explosion.Name = "Explosion";
+            this.Explosion.Size = new System.Drawing.Size(100, 100);
+            this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Explosion.TabIndex = 4;
+            this.Explosion.TabStop = false;
             // 
             // Stone
             // 
@@ -143,6 +154,19 @@
             this.PowerItem.TabIndex = 3;
             this.PowerItem.TabStop = false;
             // 
+            // UIText
+            // 
+            this.UIText.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.UIText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.UIText.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.UIText.ForeColor = System.Drawing.Color.AliceBlue;
+            this.UIText.Image = global::Shooting.Properties.Resources.UI;
+            this.UIText.Location = new System.Drawing.Point(0, -1);
+            this.UIText.Name = "UIText";
+            this.UIText.Size = new System.Drawing.Size(318, 60);
+            this.UIText.TabIndex = 1;
+            this.UIText.Text = "Score : 0\r\n";
+            // 
             // Player
             // 
             this.Player.Image = ((System.Drawing.Image)(resources.GetObject("Player.Image")));
@@ -173,33 +197,12 @@
             this.Background1.TabIndex = 2;
             this.Background1.TabStop = false;
             // 
-            // Explosion
-            // 
-            this.Explosion.Image = global::Shooting.Properties.Resources.Explosion;
-            this.Explosion.Location = new System.Drawing.Point(0, -1);
-            this.Explosion.Name = "Explosion";
-            this.Explosion.Size = new System.Drawing.Size(319, 569);
-            this.Explosion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Explosion.TabIndex = 4;
-            this.Explosion.TabStop = false;
-            // 
-            // StageUp
-            // 
-            this.StageUp.BackColor = System.Drawing.Color.Transparent;
-            this.StageUp.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.StageUp.ForeColor = System.Drawing.Color.Firebrick;
-            this.StageUp.Location = new System.Drawing.Point(100, 165);
-            this.StageUp.Name = "StageUp";
-            this.StageUp.Size = new System.Drawing.Size(117, 38);
-            this.StageUp.TabIndex = 7;
-            this.StageUp.Text = "Stage UP!";
-            this.StageUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ShootingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 567);
+            this.Controls.Add(this.Explosion);
             this.Controls.Add(this.StageUp);
             this.Controls.Add(this.MXP3);
             this.Controls.Add(this.MXP2);
@@ -212,7 +215,6 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.Background2);
             this.Controls.Add(this.Background1);
-            this.Controls.Add(this.Explosion);
             this.DoubleBuffered = true;
             this.Name = "ShootingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -225,6 +227,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MXP3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BombItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LifeItem)).EndInit();
@@ -232,7 +235,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Background1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Explosion)).EndInit();
             this.ResumeLayout(false);
 
         }

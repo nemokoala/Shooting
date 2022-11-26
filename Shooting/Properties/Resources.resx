@@ -130,6 +130,9 @@
   <data name="반응속도버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\반응속도버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="두더지버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\두더지버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Enemy2Hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enemy2Hit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,17 +184,17 @@
   <data name="off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PlayerHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayerHit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="메인배경" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\메인배경.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnemyHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnemyHit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JellyBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JellyBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Player1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,8 +214,11 @@
   <data name="yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PlayerHit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayerHit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NExplosion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NExplosion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +226,8 @@
   <data name="white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="메인배경" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\메인배경.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="JellyBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JellyBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,7 +247,7 @@
   <data name="지뢰찾기버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\지뢰찾기버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="두더지버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\두더지버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -389,5 +389,11 @@
   <ItemGroup>
     <None Include="Resources\두더지버튼.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NExplosion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
