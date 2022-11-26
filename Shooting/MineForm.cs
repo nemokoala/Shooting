@@ -214,7 +214,7 @@ namespace MineSweeperFinal
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) //프로그램 종료
         {
-            Application.Restart();
+            Application.Exit();
         }
 
         private void timer1_Tick(object sender, EventArgs e) //라운드 플레이 시간 계산
@@ -302,14 +302,18 @@ namespace MineSweeperFinal
             this.Controls.Add(mine);
             this.Controls.Add(time);
             btn_changediff.Click += changediff; //각 버튼에 맞는 이벤트 설정
-
+            btn_manu.Click += Btn_Manu_Click;
         }
         private void changediff(object sender, EventArgs e) //btn_changediff에 대한 클릭 이벤트
         {
             GameInit game = new GameInit();
             game.Show();
-            this.Close();
+            this.Hide();
 
+        }
+        private void Btn_Manu_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
