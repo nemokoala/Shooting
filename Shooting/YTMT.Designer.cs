@@ -228,6 +228,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CountDown);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(700, 600);
+            this.MinimumSize = new System.Drawing.Size(700, 600);
             this.Name = "YTMT";
             this.Text = "니편내편";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.YTMT_FormClosed);
