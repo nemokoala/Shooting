@@ -92,10 +92,10 @@
             // 
             // StageUp
             // 
-            this.StageUp.BackColor = System.Drawing.Color.Gainsboro;
+            this.StageUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.StageUp.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.StageUp.ForeColor = System.Drawing.Color.Firebrick;
-            this.StageUp.Location = new System.Drawing.Point(100, 165);
+            this.StageUp.ForeColor = System.Drawing.Color.Black;
+            this.StageUp.Location = new System.Drawing.Point(100, 183);
             this.StageUp.Name = "StageUp";
             this.StageUp.Size = new System.Drawing.Size(117, 38);
             this.StageUp.TabIndex = 7;
@@ -160,7 +160,7 @@
             this.UIText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UIText.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.UIText.ForeColor = System.Drawing.Color.AliceBlue;
-            this.UIText.Image = global::Shooting.Properties.Resources.UI;
+            this.UIText.Image = global::Shooting.Properties.Resources.TopUi;
             this.UIText.Location = new System.Drawing.Point(0, -1);
             this.UIText.Name = "UIText";
             this.UIText.Size = new System.Drawing.Size(318, 60);

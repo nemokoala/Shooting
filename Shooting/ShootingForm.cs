@@ -169,7 +169,7 @@ namespace Shooting
                     Enemy1HpViewerParent[i].Value = enemy1DefaultHp;
                     Player.Image = Properties.Resources.PlayerHit;
                     playerImageCount = 20;
-                    UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                    RefreshUI();
 
                     if (playerHp <= 0 && gameover == false)
                     {
@@ -263,7 +263,7 @@ namespace Shooting
                         Enemy2HpViewerParent[i].Value = enemy2DefaultHp;
                         Player.Image = Properties.Resources.PlayerHit;
                         playerImageCount = 20;
-                        UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                        RefreshUI();
 
                         if (playerHp <= 0 && gameover == false)
                         {
@@ -318,7 +318,7 @@ namespace Shooting
                 playerHp--;
                 Player.Image = Properties.Resources.PlayerHit;
                 playerImageCount = 20;
-                UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                RefreshUI();
 
                 if (playerHp <= 0 && gameover == false)
                 {
@@ -425,7 +425,7 @@ namespace Shooting
             }
             bulletDelayCount++;
             playerImageCount--;
-            if (playerImageCount == 20) Player.Image = Properties.Resources.PlayerHit;UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+            if (playerImageCount == 20) Player.Image = Properties.Resources.PlayerHit;RefreshUI();
             if (playerImageCount == 16) Player.Image = Properties.Resources.Player;
             if (playerImageCount == 10) Player.Image = Properties.Resources.PlayerHit;
             if (playerImageCount == 0) Player.Image = Properties.Resources.Player;
@@ -438,7 +438,7 @@ namespace Shooting
                 weaponLevel++;
                 powerItemActive = false;
                 PowerItem.Left = -100;
-                UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                RefreshUI();
                 if (weaponLevel == 3) 
                 {
                     for (int i = 0; i < BulletParent.Length; i++)
@@ -522,7 +522,7 @@ namespace Shooting
             {
                 if (playerHp < playerMaxHp)
                 playerHp += 1;
-                UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                RefreshUI();
                 lifeItemActive = false;
                 LifeItem.Left = -100;
             }
@@ -549,8 +549,8 @@ namespace Shooting
             //폭탄 아이템
             if (Player.Bounds.IntersectsWith(BombItem.Bounds)) 
             {
-                Explosion.Width = 120;
-                Explosion.Height = 120;
+                Explosion.Width = 100;
+                Explosion.Height = 100;
                 MXP2.Ctlcontrols.play();
                 Explosion.Left = ClientSize.Width / 2 - Explosion.Width / 2;
                 Explosion.Top = ClientSize.Height / 2 -Explosion.Height / 2;
@@ -592,13 +592,13 @@ namespace Shooting
             {
                 stage = (bulletDelayCount / 700) + 1; //700틱마다 스테이지 증가
                 try{ MXP3.Ctlcontrols.play();} catch { }
-                UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+                RefreshUI();
                 enemy1DefaultHp = enemy1MaxHp + stage * 15;
                 enemy2DefaultHp = enemy2MaxHp + stage * 25;
                 if (stage % 4 == 0) enemy1Speed++;
                 if (stage > 5 && stage % 6 == 0) enemy2Speed++;
-                if (enemy1Speed > 9) enemy1Speed = 9;
-                if (enemy2Speed > 8) enemy2Speed = 8;
+                if (enemy1Speed > 10) enemy1Speed = 10;
+                if (enemy2Speed > 9) enemy2Speed = 9;
                 if (stage >= enemy3InsStage && stage % 3 == 0) enemy3Speed++;
                 if (stage == 5)
                 {
@@ -639,7 +639,7 @@ namespace Shooting
                 StageUp.Visible = true;
                 StageUp.BringToFront();
             }
-            if (bulletDelayCount % 700 == 40)//stageup 글씨 사라지게
+            if (bulletDelayCount % 700 == 43)//stageup 글씨 사라지게
             {          
                 StageUp.SendToBack();
                 StageUp.Visible = false;
@@ -712,7 +712,7 @@ namespace Shooting
                     Enemy1Parent[j].Image = Properties.Resources.Enemy;
             }
             score += 10+stage;
-            UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+            RefreshUI();
 
         }
 
@@ -747,14 +747,26 @@ namespace Shooting
             enemy2ImageCount[j] = 0;
             Enemy2Parent[j].Image = Properties.Resources.Enemy2;
             score += 20+stage;
-            UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+            RefreshUI();
         }
 
+        private void RefreshUI()
+        {
+            if (stage<10 && weaponLevel <10)
+            UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "          체력 : " + playerHp + "/" + playerMaxHp;
+            if (stage < 10 && weaponLevel >= 10)
+                UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "         체력 : " + playerHp + "/" + playerMaxHp;
+            if (stage >= 10 && weaponLevel <10)
+                UIText.Text = "Stage : " + stage + "            Score : " + score + "\n무기레벨 : " + weaponLevel + "          체력 : " + playerHp + "/" + playerMaxHp;
+            if (stage >= 10 && weaponLevel >= 10)
+                UIText.Text = "Stage : " + stage + "            Score : " + score + "\n무기레벨 : " + weaponLevel + "         체력 : " + playerHp + "/" + playerMaxHp;
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) playerMove = -1;
             if (e.KeyCode == Keys.Right) playerMove = 1;
-            if (e.KeyCode == Keys.Z) Player.Controls.Clear();
+            if (e.KeyCode == Keys.Z) weaponLevel++;
+            if (e.KeyCode == Keys.X) score+=1000;
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -819,12 +831,13 @@ namespace Shooting
             Background1.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Size = new Size(ClientSize.Width, ClientSize.Height);
             Background2.Top = 0 - Background2.Height;
-            UIText.Text = "Stage : " + stage + "              Score : " + score + "\n무기레벨 : " + weaponLevel + "           체력 : " + playerHp + "/" + playerMaxHp;
+            RefreshUI();
             PowerItem.Left = -100; //아이템들 위치 초기설정
             LifeItem.Left = -100;
             BombItem.Left = -100;
             Explosion.SendToBack();
             StageUp.SendToBack();
+            StageUp.Left = ClientSize.Width / 2 - StageUp.Width / 2; //ui 가운데로
             //BgmSound.PlayLooping();
             Stone.Left = -100; //돌 초기에 안보이게
             //Background1.Visible = false;
