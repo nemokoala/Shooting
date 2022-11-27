@@ -143,7 +143,7 @@ namespace Shooting
         private void YTMTBtn_MouseHover(object sender, EventArgs e)
         {
             UITEXT.Text = "<니편내편 게임>\n알맞은 방향으로 공룡을 보내세요!" +
-                "\n\n<조작법>\n현재 공룡을\n" +
+                "\n\n<조작법>\n" +
                 "키보드 방향키 ← : 왼쪽 이동\n키보드 방향키 → : 오른쪽 이동" +
                 "\n\n<게임 방법>\n현재 공룡을 왼쪽 또는 오른쪽으로 보내주세요.";
             UITEXT.BackColor = Color.FromArgb(255, 231, 208);
