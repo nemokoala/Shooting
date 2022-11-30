@@ -49,6 +49,7 @@ namespace Shooting
         private int bulletDamage = 10;
         private int weaponLevel = 1;
         private int itemMoveSpeed = 3;
+        private int stageUpCount = 700; // 20ms * stageUpCount 마다 스테이지 증가
         private Boolean powerItemActive = false;
         private Boolean lifeItemActive = false;
         private Boolean bombItemActive = false;
@@ -434,79 +435,7 @@ namespace Shooting
             //파워업 아이템
             if (Player.Bounds.IntersectsWith(PowerItem.Bounds))
             {
-                bulletDamage += 2;
-                weaponLevel++;
-                powerItemActive = false;
-                PowerItem.Left = -100;
-                RefreshUI();
-                if (weaponLevel == 3) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.Orange;
-                    }
-                }
-                if (weaponLevel == 6)
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.LightGreen;
-                    }
-                }
-                if (weaponLevel == 10) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.LawnGreen;
-                    }
-                }
-                if (weaponLevel == 20) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.FromArgb(32, 255, 130);
-                    }
-                }
-                if (weaponLevel == 30) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.GreenYellow;
-                        BulletParent[i].Size = new Size(12, 35);
-                    }
-                }
-                if (weaponLevel == 40) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.PaleGreen;
-                        BulletParent[i].Size = new Size(24, 35);
-                    }
-                }
-                if (weaponLevel == 50) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.MediumSpringGreen;
-                        BulletParent[i].Size = new Size(36, 35);
-                    }
-                }
-                if (weaponLevel == 60) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.Aquamarine;
-                        BulletParent[i].Size = new Size(38, 35);
-                    }
-                }
-                if (weaponLevel == 70) 
-                {
-                    for (int i = 0; i < BulletParent.Length; i++)
-                    {
-                        BulletParent[i].BackColor = Color.SkyBlue;
-                        BulletParent[i].Size = new Size(40, 35);
-                    }
-                }
+                PowerUp();
             }
             if (powerItemActive == true)
             {
@@ -588,10 +517,10 @@ namespace Shooting
             }
 
             //스테이지 설정
-            if (bulletDelayCount % 700 == 0) 
+            if (bulletDelayCount % stageUpCount == 0) 
             {
-                stage = (bulletDelayCount / 700) + 1; //700틱마다 스테이지 증가
-                try{ MXP3.Ctlcontrols.play();} catch { }
+                stage = (bulletDelayCount / stageUpCount) + 1; //stageUpCount틱마다 스테이지 증가
+                try { MXP3.Ctlcontrols.play();} catch { }
                 RefreshUI();
                 enemy1DefaultHp = enemy1MaxHp + stage * 15;
                 enemy2DefaultHp = enemy2MaxHp + stage * 25;
@@ -634,12 +563,12 @@ namespace Shooting
                     Stone.Top = 0 - Stone.Height;
                 }
             }
-            if (stage > 1 && bulletDelayCount % 700 == 7)//stageup 글씨 나오게
+            if (stage > 1 && bulletDelayCount % stageUpCount == 7)//stageup 글씨 나오게
             {
                 StageUp.Visible = true;
                 StageUp.BringToFront();
             }
-            if (bulletDelayCount % 700 == 43)//stageup 글씨 사라지게
+            if (bulletDelayCount % stageUpCount == 43)//stageup 글씨 사라지게
             {          
                 StageUp.SendToBack();
                 StageUp.Visible = false;
@@ -761,11 +690,87 @@ namespace Shooting
             if (stage >= 10 && weaponLevel >= 10)
                 UIText.Text = "Stage : " + stage + "            Score : " + score + "\n무기레벨 : " + weaponLevel + "         체력 : " + playerHp + "/" + playerMaxHp;
         }
+        private void PowerUp()
+        {
+            bulletDamage += 2;
+            weaponLevel++;
+            powerItemActive = false;
+            PowerItem.Left = -100;
+            RefreshUI();
+            if (weaponLevel == 3)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.Orange;
+                }
+            }
+            if (weaponLevel == 6)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.LightGreen;
+                }
+            }
+            if (weaponLevel == 10)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.LawnGreen;
+                }
+            }
+            if (weaponLevel == 20)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.FromArgb(32, 255, 130);
+                }
+            }
+            if (weaponLevel == 30)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.GreenYellow;
+                    BulletParent[i].Size = new Size(12, 35);
+                }
+            }
+            if (weaponLevel == 40)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.PaleGreen;
+                    BulletParent[i].Size = new Size(24, 35);
+                }
+            }
+            if (weaponLevel == 50)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.MediumSpringGreen;
+                    BulletParent[i].Size = new Size(36, 35);
+                }
+            }
+            if (weaponLevel == 60)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.Aquamarine;
+                    BulletParent[i].Size = new Size(38, 35);
+                }
+            }
+            if (weaponLevel == 70)
+            {
+                for (int i = 0; i < BulletParent.Length; i++)
+                {
+                    BulletParent[i].BackColor = Color.SkyBlue;
+                    BulletParent[i].Size = new Size(40, 35);
+                }
+            }
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) playerMove = -1;
             if (e.KeyCode == Keys.Right) playerMove = 1;
-            if (e.KeyCode == Keys.Z) weaponLevel++;
+            if (e.KeyCode == Keys.Z) PowerUp();
             if (e.KeyCode == Keys.X) score+=1000;
         }
 
@@ -803,7 +808,7 @@ namespace Shooting
                 Enemy1HpViewerParent[i].Top = Enemy1Parent[i].Top - 15;
                 Enemy1HpViewerParent[i].Left = Enemy1Parent[i].Left - 15;
                 Enemy1HpViewerParent[i].Size = new Size(70, 15);
-                Enemy1HpViewerParent[i].ForeColor = Color.Red;               
+                //Enemy1HpViewerParent[i].ForeColor = Color.Red;               
                 Controls.Add(Enemy1HpViewerParent[i]);
                 Enemy1HpViewerParent[i].BringToFront();
                 enemy1HpViewerEnable[i] = 0;
